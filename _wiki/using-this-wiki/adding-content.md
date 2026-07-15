@@ -8,56 +8,93 @@ toc: true
 
 # Adding Content
 
-This manual teaches you how to add new pages, categories, and documentation sections.
+This page teaches you how to add new pages, organize them into categories, and control how they appear in search and navigation.
 
-## Create a New Page
+## Create a new page
 
-1. Pick a category folder inside `_wiki/` (e.g., `_wiki/getting-started/`).
-2. Add a new `.md` file:
+1. Pick a category folder inside `_wiki/`. For example, `_wiki/getting-started/`.
+2. Create a new file ending in `.md`, such as `_wiki/getting-started/my-new-article.md`.
+3. Paste this template into the file:
 
-```markdown
+```yaml
 ---
-title: "New Article"
+title: "My New Article"
 layout: wiki
 category: "getting-started"
 order: 30
 toc: true
 ---
 
-# New Article
+# My New Article
 
 Write your content here.
+
+## Subheading
+
+More content.
 ```
 
-3. Commit and push. The page builds automatically.
+4. Replace the placeholder text with your real content.
+5. Commit and push. GitHub Actions builds the site automatically.
 
-## Create a New Category
+### Front matter explained
 
-1. Create a new folder under `_wiki/` (e.g., `_wiki/design/`).
+Every page needs a header block called "front matter". It tells the site how to display your page.
+
+| Key | Required | Description |
+|-----|----------|-------------|
+| `title` | Yes | The page heading and browser tab title |
+| `layout` | Yes | Use `wiki` for articles, `category` for category index pages |
+| `category` | Yes | Must match the folder name under `_wiki/` |
+| `order` | No | Lower numbers appear first within a category |
+| `toc` | No | Set to `true` to show a table of contents sidebar |
+| `search_exclude` | No | Set to `true` to hide the page from search results |
+
+## Create a new category
+
+1. Create a new folder under `_wiki/`. For example, `_wiki/design/`.
 2. Add an `index.md` inside it:
 
-```markdown
+```yaml
 ---
 title: "Design"
 layout: category
 category: "design"
+description: "Design systems, style guides, and visual guidelines."
+permalink: /wiki/design/
 ---
 ```
 
-3. Add your first article in the same folder.
-4. Update `_data/navigation.yml` to link the category.
-5. Update `_data/categories.yml` with metadata.
+3. Add your first article inside the same folder.
+4. Update `_data/navigation.yml` to add a link to the category.
+5. Update `_data/categories.yml` so the category appears on the home page.
 
-## Front Matter Reference
+## Add images
 
-| Key | Required | Description |
-|-----|----------|-------------|
-| `title` | Yes | Page title |
-| `layout` | Yes | `wiki`, `category`, `home`, or `docs` |
-| `category` | Yes | Matches the folder name |
-| `order` | No | Sort order within category (lower first) |
-| `toc` | No | `true` to show table of contents |
+Place images in `assets/images/` and reference them in Markdown:
 
-## Template
+```markdown
+![Diagram](/assets/images/diagram.png)
+```
 
-A copy-paste template is available at `_wiki/using-this-wiki/templates/page-template.md`.
+Use lowercase names with hyphens to avoid issues on GitHub Pages' Linux filesystem.
+
+## Write good content
+
+- Use `#` for the main title, `##` for sections, and `###` for subsections.
+- Use `-` for bullet lists and `1.` for numbered lists.
+- Use fenced code blocks with language hints for syntax highlighting:
+
+````markdown
+```javascript
+console.log("Hello");
+```
+````
+
+- Keep paragraphs short and use headings to break up long text.
+
+## Template shortcut
+
+A ready-to-copy template is available at:
+
+`_wiki/using-this-wiki/templates/page-template.md`
