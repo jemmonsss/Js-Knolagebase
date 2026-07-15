@@ -14,8 +14,144 @@
     { slug: "using-this-wiki", title: "Using This Wiki", description: "A self-documenting manual on how to operate and extend this site.", url: "/wiki/using-this-wiki/", icon: "help-circle" }
   ];
 
-  let templates = TEMPLATES;
-  let categories = CATEGORIES;
+  const TEMPLATE_CONTENTS = {
+    "page-template.md": `---
+title: "My New Article"
+layout: wiki
+category: "getting-started"
+order: 30
+toc: true
+---
+
+# My New Article
+
+Write your content here.
+
+## Subheading
+
+More content.
+`,
+    "guide-template.md": `---
+title: "{{TITLE}}"
+layout: wiki
+category: "{{CATEGORY}}"
+order: {{ORDER}}
+toc: true
+description: "{{DESCRIPTION}}"
+---
+
+# {{TITLE}}
+
+## Overview
+
+{{OVERVIEW}}
+
+## Prerequisites
+
+- {{PREREQUISITE_1}}
+- {{PREREQUISITE_2}}
+
+## Steps
+
+### Step 1: {{STEP_1_TITLE}}
+
+{{STEP_1_CONTENT}}
+
+### Step 2: {{STEP_2_TITLE}}
+
+{{STEP_2_CONTENT}}
+
+### Step 3: {{STEP_3_TITLE}}
+
+{{STEP_3_CONTENT}}
+
+## Verification
+
+{{VERIFICATION}}
+
+## Next Steps
+
+{{NEXT_STEPS}}
+`,
+    "reference-template.md": `---
+title: "{{TITLE}}"
+layout: wiki
+category: "{{CATEGORY}}"
+order: {{ORDER}}
+toc: true
+description: "{{DESCRIPTION}}"
+---
+
+# {{TITLE}}
+
+## Overview
+
+{{OVERVIEW}}
+
+## Syntax
+
+{{SYNTAX}}
+
+## Parameters
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| {{PARAM_1_NAME}} | {{PARAM_1_TYPE}} | {{PARAM_1_REQUIRED}} | {{PARAM_1_DESC}} |
+| {{PARAM_2_NAME}} | {{PARAM_2_TYPE}} | {{PARAM_2_REQUIRED}} | {{PARAM_2_DESC}} |
+
+## Examples
+
+{{EXAMPLES}}
+
+## Notes
+
+{{NOTES}}
+`,
+    "tutorial-template.md": `---
+title: "{{TITLE}}"
+layout: wiki
+category: "{{CATEGORY}}"
+order: {{ORDER}}
+toc: true
+description: "{{DESCRIPTION}}"
+---
+
+# {{TITLE}}
+
+## What You'll Build
+
+{{WHAT_YOU_BUILD}}
+
+## Time Required
+
+{{TIME_REQUIRED}}
+
+## Prerequisites
+
+- {{PREREQUISITE_1}}
+- {{PREREQUISITE_2}}
+
+## Part 1: {{PART_1_TITLE}}
+
+{{PART_1_CONTENT}}
+
+## Part 2: {{PART_2_TITLE}}
+
+{{PART_2_CONTENT}}
+
+## Part 3: {{PART_3_TITLE}}
+
+{{PART_3_CONTENT}}
+
+## Recap
+
+{{RECAP}}
+
+## Further Reading
+
+{{FURTHER_READING}}
+`
+  };
   let currentTemplate = null;
   let editor = null;
   let frontMatter = {};
@@ -68,9 +204,8 @@
   async function loadTemplate(file) {
     currentTemplate = templates.find(t => t.file === file);
     try {
-      const res = await fetch('/assets/templates/' + file);
-      if (!res.ok) throw new Error('Failed');
-      const text = await res.text();
+      const text = TEMPLATE_CONTENTS[file];
+      if (!text) throw new Error('Template not found');
       const parsed = parseFrontMatter(text);
       frontMatter = parsed.frontMatter || {};
       if (editor) {
