@@ -68,7 +68,12 @@ def check_links
   puts "==> Validating internal links..."
 
   unless SITE_DIR.exist?
-    abort "    FAIL: _site/ not found. The main Jekyll build step must run before link validation."
+    if ENV["CI"]
+      abort "    FAIL: _site/ not found. The main Jekyll build step must run before link validation."
+    else
+      puts "    _site/ not found. Building site first..."
+      build_site
+    end
   end
 
   errors = []
