@@ -6,6 +6,7 @@ body {
   background-color: $bg-color;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -16,70 +17,96 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: $spacing-2xl;
   margin-bottom: $spacing-md;
   scroll-margin-top: calc(#{$nav-height} + #{$spacing-lg});
+  text-align: center;
+  letter-spacing: -0.01em;
 }
 
 h1 {
   font-size: $text-3xl;
+  font-weight: 800;
   margin-top: 0;
+  letter-spacing: -0.02em;
 }
 
 h2 {
   font-size: $text-2xl;
-  border-bottom: 1px solid $border-color;
+  font-weight: 700;
+  border-bottom: 2px solid $border-color;
   padding-bottom: $spacing-sm;
+  margin-top: $spacing-3xl;
 }
 
 h3 {
   font-size: $text-xl;
+  font-weight: 700;
+  margin-top: $spacing-2xl;
 }
 
 h4 {
   font-size: $text-lg;
+  font-weight: 600;
+  margin-top: $spacing-xl;
 }
 
 p {
   margin-top: 0;
   margin-bottom: $spacing-lg;
   max-width: $content-max-width;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  line-height: $line-height-relaxed;
 }
 
 a {
   color: $primary-color;
   text-decoration: none;
+  font-weight: 500;
+  transition: color $transition-fast;
 
   &:hover {
+    color: $primary-dark;
     text-decoration: underline;
+    text-underline-offset: 2px;
   }
 }
 
 strong {
   font-weight: 600;
+  color: $text-color;
 }
 
 code {
   font-family: $font-mono;
-  font-size: 0.9em;
+  font-size: 0.875em;
   background: $bg-secondary;
-  padding: 0.2em 0.4em;
-  border-radius: $border-radius;
+  padding: 0.2em 0.5em;
+  border-radius: $border-radius-sm;
   color: $secondary-color;
+  border: 1px solid $border-light;
+  font-weight: 500;
 }
 
 pre {
   background: $code-bg;
   color: $code-text;
   padding: $spacing-lg;
-  border-radius: $border-radius;
+  border-radius: $border-radius-lg;
   overflow-x: auto;
   font-size: $text-sm;
   line-height: $line-height-normal;
-}
+  box-shadow: $shadow-md;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: left;
 
-pre code {
-  background: transparent;
-  padding: 0;
-  color: inherit;
-  font-size: inherit;
+  code {
+    background: transparent;
+    padding: 0;
+    color: inherit;
+    font-size: inherit;
+    border: none;
+    font-weight: 400;
+  }
 }
 
 blockquote {
@@ -88,6 +115,9 @@ blockquote {
   border-left: 4px solid $primary-color;
   background: $bg-secondary;
   color: $text-muted;
+  border-radius: 0 $border-radius $border-radius 0;
+  font-style: italic;
+  text-align: center;
 
   p:last-child {
     margin-bottom: 0;
@@ -99,6 +129,14 @@ ul, ol {
   margin-bottom: $spacing-lg;
   padding-left: $spacing-xl;
   max-width: $content-max-width;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+
+  li {
+    margin-bottom: $spacing-sm;
+    padding-left: $spacing-sm;
+  }
 }
 
 li {
@@ -107,7 +145,8 @@ li {
 
 hr {
   border: none;
-  border-top: 1px solid $border-color;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, $border-color, transparent);
   margin: $spacing-2xl 0;
 }
 
@@ -116,22 +155,53 @@ img {
   height: auto;
   display: block;
   border-radius: $border-radius;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: $shadow-sm;
 }
 
 table {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
   margin-bottom: $spacing-lg;
   font-size: $text-sm;
+  border-radius: $border-radius;
+  overflow: hidden;
+  box-shadow: $shadow-sm;
 }
 
 th, td {
   padding: $spacing-sm $spacing-md;
-  text-align: left;
+  text-align: center;
   border-bottom: 1px solid $border-color;
 }
 
 th {
   font-weight: 600;
   background: $bg-secondary;
+  color: $text-color;
+  text-transform: uppercase;
+  font-size: $text-xs;
+  letter-spacing: 0.05em;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+tr:hover td {
+  background: rgba(37, 99, 235, 0.02);
+}
+
+// Selection styling
+::selection {
+  background: rgba(37, 99, 235, 0.2);
+  color: $text-color;
+}
+
+// Smooth scrolling
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(#{$nav-height} + #{$spacing-lg});
 }

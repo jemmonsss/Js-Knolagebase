@@ -73,13 +73,18 @@
   align-self: start;
   max-height: calc(100vh - #{$nav-height} - 2 * #{$spacing-lg});
   overflow-y: auto;
+  background: $bg-color;
+  border-radius: $border-radius-lg;
+  padding: $spacing-md;
+  box-shadow: $shadow-sm;
+  border: 1px solid $border-color;
 }
 
 .sidebar-list {
   list-style: none;
   padding: 0;
   margin: 0;
-  border-left: 2px solid $border-color;
+  border-left: none;
 }
 
 .sidebar-link {
@@ -87,19 +92,26 @@
   padding: $spacing-xs $spacing-md;
   color: $text-muted;
   text-decoration: none;
-  border-left: 2px solid transparent;
-  margin-left: -2px;
+  border-left: 3px solid transparent;
+  margin-left: 0;
   font-size: $text-sm;
+  border-radius: 0 $border-radius-sm $border-radius-sm 0;
+  margin-bottom: $spacing-xs;
+  transition: all $transition-fast;
+  text-align: left;
 
   &:hover {
     color: $primary-color;
     border-left-color: $primary-color;
+    background: rgba(37, 99, 235, 0.05);
+    padding-left: $spacing-md;
   }
 
   &.active {
     color: $primary-color;
     font-weight: 600;
     border-left-color: $primary-color;
+    background: rgba(37, 99, 235, 0.08);
   }
 }
 
@@ -108,6 +120,10 @@
     position: static;
     max-height: none;
     margin-bottom: $spacing-lg;
+    background: transparent;
+    box-shadow: none;
+    border: none;
+    padding: 0;
   }
 
   .sidebar-list {
@@ -115,6 +131,7 @@
     flex-wrap: wrap;
     gap: $spacing-sm;
     border-left: none;
+    justify-content: center;
   }
 
   .sidebar-link {
@@ -123,9 +140,67 @@
     padding: $spacing-xs $spacing-sm;
     background: $bg-secondary;
     border-radius: $border-radius;
+    text-align: center;
+    flex: 0 0 auto;
+
+    &:hover {
+      padding-left: $spacing-sm;
+    }
 
     &.active {
       border-left: none;
+      background: rgba(37, 99, 235, 0.1);
     }
   }
+}
+
+// ------------------------------
+// Spacing utilities
+// ------------------------------
+.mt-auto { margin-top: auto; }
+.mb-auto { margin-bottom: auto; }
+.ml-auto { margin-left: auto; }
+.mr-auto { margin-right: auto; }
+
+// ------------------------------
+// Section spacing
+// ------------------------------
+.section {
+  padding: $spacing-3xl 0;
+  text-align: center;
+
+  &-title {
+    text-align: center;
+    margin-bottom: $spacing-xl;
+  }
+
+  &-subtitle {
+    text-align: center;
+    color: $text-muted;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: $spacing-2xl;
+  }
+}
+
+// ------------------------------
+// Card grid
+// ------------------------------
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: $spacing-lg;
+  margin: $spacing-xl 0;
+}
+
+// ------------------------------
+// Divider
+// ------------------------------
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, $border-color, transparent);
+  border: none;
+  margin: $spacing-3xl auto;
+  max-width: 200px;
 }

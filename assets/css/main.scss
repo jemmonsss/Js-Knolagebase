@@ -25,6 +25,12 @@ html {
 
 body {
   margin: 0;
+  background-color: $bg-color;
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(37, 99, 235, 0.03) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(30, 64, 175, 0.03) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(245, 158, 11, 0.02) 0px, transparent 50%);
+  background-attachment: fixed;
 }
 
 // ------------------------------
@@ -40,10 +46,27 @@ body {
 .home-hero {
   background: linear-gradient(135deg, $primary-color 0%, $secondary-color 100%);
   color: #fff;
-  padding: $spacing-3xl 0;
+  padding: $spacing-4xl 0;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+  }
 
   .container {
+    position: relative;
+    z-index: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -51,13 +74,18 @@ body {
 
   .hero-title {
     font-size: $text-3xl;
+    font-weight: 800;
     margin-bottom: $spacing-md;
+    letter-spacing: -0.02em;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
 
   .hero-subtitle {
     font-size: $text-lg;
-    opacity: 0.9;
+    opacity: 0.95;
     margin-bottom: $spacing-xl;
+    max-width: 600px;
+    line-height: $line-height-relaxed;
   }
 
   .hero-actions {
@@ -71,13 +99,16 @@ body {
     display: inline-flex;
     align-items: center;
     padding: $spacing-sm $spacing-xl;
-    border-radius: $border-radius;
+    border-radius: $border-radius-lg;
     font-weight: 600;
     text-decoration: none;
-    transition: transform $transition-fast, box-shadow $transition-fast;
+    transition: all $transition-normal;
+    border: none;
+    cursor: pointer;
+    font-size: $text-base;
 
     &:hover {
-      transform: translateY(-1px);
+      transform: translateY(-2px);
       text-decoration: none;
     }
   }
@@ -85,18 +116,30 @@ body {
   .btn-primary {
     background: #fff;
     color: $primary-color;
+    box-shadow: $shadow-md;
+
+    &:hover {
+      box-shadow: $shadow-lg;
+      background: #f9fafb;
+    }
   }
 
   .btn-secondary {
     background: transparent;
     color: #fff;
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.9);
+    }
   }
 }
 
 .home-sections {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: $spacing-lg;
   padding: $spacing-3xl 0;
 }
@@ -104,29 +147,52 @@ body {
 .home-card {
   display: block;
   padding: $spacing-xl;
-  background: $bg-secondary;
+  background: $bg-color;
   border: 1px solid $border-color;
-  border-radius: $border-radius;
+  border-radius: $border-radius-lg;
   text-decoration: none;
   color: inherit;
-  transition: box-shadow $transition-fast, transform $transition-fast;
+  transition: all $transition-normal;
   text-align: center;
+  box-shadow: $shadow-sm;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, $primary-color, $secondary-color);
+    opacity: 0;
+    transition: opacity $transition-normal;
+  }
 
   &:hover {
-    box-shadow: $shadow-md;
-    transform: translateY(-2px);
+    box-shadow: $shadow-lg;
+    transform: translateY(-4px);
     text-decoration: none;
+    border-color: $primary-light;
+
+    &::before {
+      opacity: 1;
+    }
   }
 
   h2 {
     margin-top: 0;
     font-size: $text-xl;
-    color: $primary-color;
+    font-weight: 700;
+    color: $text-color;
+    margin-bottom: $spacing-md;
   }
 
   p {
     margin-bottom: 0;
     color: $text-muted;
+    line-height: $line-height-relaxed;
   }
 }
 
@@ -149,6 +215,7 @@ body {
     margin: 0;
     font-size: $text-sm;
     color: $text-muted;
+    align-items: center;
   }
 
   li {
@@ -160,6 +227,7 @@ body {
     &::after {
       content: "/";
       color: $border-color;
+      margin-left: $spacing-xs;
     }
 
     &:last-child {
@@ -171,15 +239,18 @@ body {
 
   a {
     color: $text-muted;
+    text-decoration: none;
+    transition: color $transition-fast;
 
     &:hover {
       color: $primary-color;
+      text-decoration: none;
     }
   }
 
   [aria-current="page"] {
     color: $text-color;
-    font-weight: 500;
+    font-weight: 600;
   }
 }
 
@@ -191,9 +262,25 @@ body {
 
 .wiki-article {
   min-width: 0;
+  text-align: center;
 
   h1 {
     text-align: center;
+    font-size: $text-3xl;
+    font-weight: 800;
+    margin-bottom: $spacing-lg;
+    letter-spacing: -0.02em;
+    color: $text-color;
+  }
+
+  h2 {
+    text-align: center;
+    margin-top: $spacing-2xl;
+  }
+
+  h3 {
+    text-align: center;
+    margin-top: $spacing-2xl;
   }
 }
 
@@ -206,6 +293,14 @@ body {
   margin-bottom: $spacing-xl;
   padding-bottom: $spacing-md;
   border-bottom: 1px solid $border-color;
+  justify-content: center;
+  text-align: center;
+
+  span {
+    display: inline-flex;
+    align-items: center;
+    gap: $spacing-xs;
+  }
 }
 
 @media (min-width: #{$breakpoint-desktop}) {
@@ -229,9 +324,12 @@ body {
   font-size: $text-sm;
 
   .toc-title {
-    font-weight: 600;
-    margin-bottom: $spacing-sm;
+    font-weight: 700;
+    margin-bottom: $spacing-md;
     color: $text-color;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: $text-xs;
   }
 
   .toc-list {
@@ -251,10 +349,12 @@ body {
       text-decoration: none;
       border-left: 2px solid transparent;
       margin-left: -2px;
+      transition: all $transition-fast;
 
       &:hover {
         color: $primary-color;
         border-left-color: $primary-color;
+        background: rgba(37, 99, 235, 0.05);
       }
     }
   }
@@ -295,6 +395,7 @@ body {
   margin-left: auto;
   margin-right: auto;
   max-width: $content-max-width;
+  line-height: $line-height-relaxed;
 }
 
 .category-articles {
@@ -306,30 +407,53 @@ body {
 .article-card {
   display: block;
   padding: $spacing-lg;
-  background: $bg-secondary;
+  background: $bg-color;
   border: 1px solid $border-color;
-  border-radius: $border-radius;
+  border-radius: $border-radius-lg;
   text-decoration: none;
   color: inherit;
-  transition: box-shadow $transition-fast, transform $transition-fast;
+  transition: all $transition-normal;
   text-align: center;
+  box-shadow: $shadow-sm;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, $primary-color, $secondary-color);
+    opacity: 0;
+    transition: opacity $transition-normal;
+  }
 
   &:hover {
-    box-shadow: $shadow-md;
-    transform: translateY(-2px);
+    box-shadow: $shadow-lg;
+    transform: translateY(-3px);
     text-decoration: none;
+    border-color: $primary-light;
+
+    &::before {
+      opacity: 1;
+    }
   }
 
   h3 {
     margin-top: 0;
     font-size: $text-lg;
-    color: $primary-color;
+    font-weight: 700;
+    color: $text-color;
+    margin-bottom: $spacing-sm;
   }
 
   p {
     font-size: $text-sm;
     color: $text-muted;
     margin-bottom: 0;
+    line-height: $line-height-relaxed;
   }
 }
 
@@ -345,6 +469,11 @@ body {
   max-width: $content-max-width;
   margin-left: auto;
   margin-right: auto;
+  text-align: left;
+
+  h1 {
+    text-align: center;
+  }
 }
 
 // ------------------------------
@@ -364,17 +493,29 @@ body {
     gap: $spacing-md;
   }
 
+  .footer-brand {
+    p {
+      margin: 0;
+      color: $text-muted;
+      font-size: $text-sm;
+    }
+  }
+
   .footer-links {
     display: flex;
     gap: $spacing-lg;
     font-size: $text-sm;
+    flex-wrap: wrap;
 
     a {
       color: $text-muted;
       text-decoration: none;
+      transition: color $transition-fast;
+      padding: $spacing-xs 0;
 
       &:hover {
         color: $primary-color;
+        text-decoration: none;
       }
     }
   }
@@ -384,6 +525,7 @@ body {
   .footer-content {
     flex-direction: column;
     text-align: center;
+    gap: $spacing-md;
   }
 }
 
@@ -402,20 +544,24 @@ body {
 
 .error-code {
   font-size: $text-3xl;
-  font-weight: 700;
+  font-weight: 800;
   color: $primary-color;
   margin-bottom: $spacing-md;
   line-height: 1;
+  letter-spacing: -0.02em;
 }
 
 .error-title {
   font-size: $text-2xl;
+  font-weight: 700;
   margin-bottom: $spacing-md;
+  color: $text-color;
 }
 
 .error-description {
   color: $text-muted;
   margin-bottom: $spacing-xl;
+  line-height: $line-height-relaxed;
 }
 
 .error-actions {
@@ -423,4 +569,142 @@ body {
   gap: $spacing-md;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+// ------------------------------
+// Content enhancements
+// ------------------------------
+.content-section {
+  margin-bottom: $spacing-3xl;
+  text-align: center;
+
+  h1, h2, h3, h4, h5, h6 {
+    text-align: center;
+  }
+}
+
+// Centered text utility for body content
+.centered-content {
+  max-width: $content-max-width;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+
+  p, ul, ol {
+    text-align: center;
+  }
+}
+
+// Subtle section dividers
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, $border-color, transparent);
+  border: none;
+  margin: $spacing-3xl 0;
+}
+
+// Enhanced focus states
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid $primary-color;
+  outline-offset: 2px;
+  border-radius: $border-radius-sm;
+}
+
+// Smooth image loading
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: $border-radius;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// Enhanced table styling
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-bottom: $spacing-lg;
+  font-size: $text-sm;
+  border-radius: $border-radius;
+  overflow: hidden;
+  box-shadow: $shadow-sm;
+}
+
+th, td {
+  padding: $spacing-sm $spacing-md;
+  text-align: center;
+  border-bottom: 1px solid $border-color;
+}
+
+th {
+  font-weight: 600;
+  background: $bg-secondary;
+  color: $text-color;
+  text-transform: uppercase;
+  font-size: $text-xs;
+  letter-spacing: 0.05em;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+tr:hover td {
+  background: rgba(37, 99, 235, 0.02);
+}
+
+// Enhanced blockquotes
+blockquote {
+  margin: $spacing-lg 0;
+  padding: $spacing-md $spacing-lg;
+  border-left: 4px solid $primary-color;
+  background: $bg-secondary;
+  color: $text-muted;
+  border-radius: 0 $border-radius $border-radius 0;
+  text-align: center;
+  font-style: italic;
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// List enhancements
+ul, ol {
+  margin-top: 0;
+  margin-bottom: $spacing-lg;
+  padding-left: $spacing-xl;
+  max-width: $content-max-width;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+
+  li {
+    margin-bottom: $spacing-sm;
+    padding-left: $spacing-sm;
+  }
+}
+
+// Horizontal rule enhancement
+hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, $border-color, transparent);
+  margin: $spacing-3xl 0;
+}
+
+// Selection styling
+::selection {
+  background: rgba(37, 99, 235, 0.2);
+  color: $text-color;
+}
+
+// Smooth scrolling for anchor links
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(#{$nav-height} + #{$spacing-lg});
 }
