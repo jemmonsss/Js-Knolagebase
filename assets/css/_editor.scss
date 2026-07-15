@@ -255,6 +255,20 @@
   border: 1px solid var(--border-color, #e5e7eb);
 }
 
+.editor-layout-page {
+  padding-bottom: 4rem;
+}
+
+.editor-page-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted, #6b7280);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
 /* Theme-aware editor styles */
 [data-theme="dark"] .editor-toolbar {
   background: var(--dark-bg-secondary, #1e293b);

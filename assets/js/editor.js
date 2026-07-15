@@ -267,7 +267,8 @@ description: "{{DESCRIPTION}}"
   function updatePreview() {
     const preview = document.getElementById('preview-content');
     if (!preview || !editor) return;
-    const rawHtml = marked.parse(editor.value());
+    const parsed = parseFrontMatter(editor.value());
+    const bodyHtml = marked.parse(parsed.body || '');
     const title = frontMatter.title || 'My New Article';
     const category = frontMatter.category || document.getElementById('category-select')?.value || 'getting-started';
     const categoryTitle = category.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
@@ -287,7 +288,7 @@ description: "{{DESCRIPTION}}"
           <span>Category: <a href="#">${escapeHtml(categoryTitle)}</a></span>
           <span>Last updated: ${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
         </div>
-        ${rawHtml}
+        ${bodyHtml}
       </article>
     `;
   }
