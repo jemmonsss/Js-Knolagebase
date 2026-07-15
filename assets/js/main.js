@@ -70,7 +70,37 @@
     });
   }
 
-  // Smooth scroll for TOC links
+  // Theme toggle
+  const themeToggle = document.getElementById('theme-toggle');
+  const themeIconLight = document.querySelector('.theme-icon-light');
+  const themeIconDark = document.querySelector('.theme-icon-dark');
+
+  function getPreferredTheme() {
+    const stored = localStorage.getItem('theme');
+    if (stored) return stored;
+    return '{{ site.theme.default | default: "dark" }}';
+  }
+
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+    if (themeIconLight && themeIconDark) {
+      themeIconLight.style.display = theme === 'dark' ? 'none' : 'block';
+      themeIconDark.style.display = theme === 'dark' ? 'block' : 'none';
+    }
+  }
+
+  if (themeToggle) {
+    applyTheme(getPreferredTheme());
+
+    themeToggle.addEventListener('click', function () {
+      const current = document.documentElement.getAttribute('data-theme');
+      applyTheme(current === 'dark' ? 'light' : 'dark');
+    });
+  } else {
+    applyTheme(getPreferredTheme());
+  }
+
   document.querySelectorAll('.toc a[href^="#"]').forEach(function (anchor) {
     anchor.addEventListener('click', function (e) {
       e.preventDefault();

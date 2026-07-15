@@ -7,6 +7,9 @@ url: "https://jemmonsss.github.io"
 baseurl: "/Js-Knolagebase"
 lang: en
 logo: "/assets/images/logo.svg"
+theme:
+  default: dark
+  toggle: true
 
 # ------------------------------
 # Author

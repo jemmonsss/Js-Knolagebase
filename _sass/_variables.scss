@@ -4,6 +4,8 @@
 $primary-color: #2563eb;
 $secondary-color: #1e40af;
 $accent-color: #f59e0b;
+
+// Light mode (default fallback)
 $text-color: #1f2937;
 $text-muted: #6b7280;
 $bg-color: #ffffff;
@@ -11,6 +13,15 @@ $bg-secondary: #f9fafb;
 $border-color: #e5e7eb;
 $code-bg: #1e293b;
 $code-text: #e2e8f0;
+
+// Dark mode overrides
+$dark-text-color: #e5e7eb;
+$dark-text-muted: #9ca3af;
+$dark-bg-color: #0f172a;
+$dark-bg-secondary: #1e293b;
+$dark-border-color: #374151;
+$dark-code-bg: #020617;
+$dark-code-text: #e2e8f0;
 
 // ------------------------------
 // Typography

@@ -124,6 +124,27 @@
   }
 }
 
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: $spacing-xs;
+  background: transparent;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  cursor: pointer;
+  color: $text-muted;
+  transition: color $transition-fast, border-color $transition-fast;
+
+  &:hover,
+  &:focus {
+    color: $primary-color;
+    border-color: $primary-color;
+  }
+}
+
 // Mobile / Tablet
 @media (max-width: #{$breakpoint-tablet}) {
   .nav-toggle {
