@@ -355,3 +355,41 @@ body {
     text-align: center;
   }
 }
+
+// ------------------------------
+// Error page (404)
+// ------------------------------
+.error-layout {
+  padding: $spacing-3xl 0;
+  text-align: center;
+}
+
+.error-content {
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.error-code {
+  font-size: $text-3xl;
+  font-weight: 700;
+  color: $primary-color;
+  margin-bottom: $spacing-md;
+  line-height: 1;
+}
+
+.error-title {
+  font-size: $text-2xl;
+  margin-bottom: $spacing-md;
+}
+
+.error-description {
+  color: $text-muted;
+  margin-bottom: $spacing-xl;
+}
+
+.error-actions {
+  display: flex;
+  gap: $spacing-md;
+  justify-content: center;
+  flex-wrap: wrap;
+}

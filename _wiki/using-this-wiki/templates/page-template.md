@@ -1,12 +1,12 @@
 ---
-title: "{{ title }}"
+title: "My New Article"
 layout: wiki
-category: "{{ category }}"
-order: {{ order }}
+category: "getting-started"
+order: 30
 toc: true
 ---
 
-# {{ title }}
+# My New Article
 
 Write your content here.
 
