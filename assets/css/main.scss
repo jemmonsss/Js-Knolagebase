@@ -143,6 +143,9 @@ body {
   gap: $spacing-lg;
   padding: $spacing-3xl 0;
   justify-items: center;
+  max-width: $content-max-width;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .home-card {
@@ -262,17 +265,10 @@ body {
   grid-template-columns: 1fr;
   gap: $spacing-xl;
   justify-items: center;
-  max-width: calc(#{$sidebar-width} + #{$content-max-width});
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .wiki-article {
   min-width: 0;
-  max-width: $content-max-width;
-  margin-left: auto;
-  margin-right: auto;
-  justify-self: center;
   text-align: center;
 
   h1 {
@@ -283,17 +279,6 @@ body {
     letter-spacing: -0.02em;
     color: $text-color;
   }
-
-  h2 {
-    text-align: center;
-    margin-top: $spacing-2xl;
-  }
-
-  h3 {
-    text-align: center;
-    margin-top: $spacing-2xl;
-  }
-}
 
   h2 {
     text-align: center;
@@ -327,7 +312,7 @@ body {
 
 @media (min-width: #{$breakpoint-desktop}) {
   .wiki-content-wrapper {
-    grid-template-columns: $sidebar-width 1fr;
+    grid-template-columns: $sidebar-width minmax(0, $content-max-width);
     justify-content: center;
   }
 
@@ -406,14 +391,12 @@ body {
   grid-template-columns: 1fr;
   gap: $spacing-xl;
   justify-items: center;
-  max-width: calc(#{$sidebar-width} + #{$content-max-width});
-  margin-left: auto;
-  margin-right: auto;
 }
 
 @media (min-width: #{$breakpoint-desktop}) {
   .category-content-wrapper {
-    grid-template-columns: $sidebar-width 1fr;
+    grid-template-columns: $sidebar-width minmax(0, $content-max-width);
+    justify-content: center;
   }
 }
 
@@ -433,6 +416,9 @@ body {
   gap: $spacing-lg;
   justify-items: center;
   width: 100%;
+  max-width: $content-max-width;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .article-card {
