@@ -152,6 +152,8 @@ description: "{{DESCRIPTION}}"
 {{FURTHER_READING}}
 `
   };
+  let templates = TEMPLATES;
+  let categories = CATEGORIES;
   let currentTemplate = null;
   let editor = null;
   let frontMatter = {};
