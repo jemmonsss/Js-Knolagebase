@@ -4,10 +4,9 @@ layout: editor
 permalink: /editor/
 ---
 
-# Create a New Wiki Page
-
 Use the editor below to create a new wiki page from a template. When you are done, download the file and upload it to the appropriate folder in your repository.
 
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <div id="editor-container">
   <div class="editor-toolbar">
     <label for="template-select">Template:</label>

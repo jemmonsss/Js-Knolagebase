@@ -1,44 +1,34 @@
 (function () {
   'use strict';
 
-  let templates = [];
-  let categories = [];
+  const TEMPLATES = [
+    { name: "Basic Article", file: "page-template.md", description: "Standard wiki article with table of contents" },
+    { name: "Guide", file: "guide-template.md", description: "Step-by-step instructions with prerequisites and verification" },
+    { name: "Reference", file: "reference-template.md", description: "API or syntax reference with parameters and examples" },
+    { name: "Tutorial", file: "tutorial-template.md", description: "Multi-part tutorial with what you'll build and recap" }
+  ];
+
+  const CATEGORIES = [
+    { slug: "getting-started", title: "Getting Started", description: "Learn the basics of setting up and using this knowledge base.", url: "/wiki/getting-started/", icon: "book-open" },
+    { slug: "advanced", title: "Advanced", description: "Deep dives into customization, plugins, and architecture.", url: "/wiki/advanced/", icon: "settings" },
+    { slug: "using-this-wiki", title: "Using This Wiki", description: "A self-documenting manual on how to operate and extend this site.", url: "/wiki/using-this-wiki/", icon: "help-circle" }
+  ];
+
+  let templates = TEMPLATES;
+  let categories = CATEGORIES;
   let currentTemplate = null;
   let editor = null;
   let frontMatter = {};
 
   async function init() {
-    await loadTemplates();
-    await loadCategories();
+    renderTemplateOptions();
+    renderCategoryOptions();
     setupEditor();
     setupToolbar();
   }
 
-  async function loadTemplates() {
-    try {
-      const res = await fetch('/_data/templates.yml');
-      if (!res.ok) throw new Error('Failed');
-      const text = await res.text();
-      templates = parseYamlList(text);
-      renderTemplateOptions();
-    } catch (e) {
-      console.error(e);
-      document.getElementById('template-select').innerHTML = '<option value="">Error loading</option>';
-    }
-  }
-
-  async function loadCategories() {
-    try {
-      const res = await fetch('/_data/categories.yml');
-      if (!res.ok) throw new Error('Failed');
-      const text = await res.text();
-      categories = parseYamlList(text);
-      renderCategoryOptions();
-    } catch (e) {
-      console.error(e);
-      document.getElementById('category-select').innerHTML = '<option value="">Error loading</option>';
-    }
-  }
+  // Templates and categories are embedded above to avoid fetch issues
+  // with Jekyll's _data/ and _wiki/ collection paths in production
 
   function parseYamlList(text) {
     const items = [];
@@ -78,7 +68,7 @@
   async function loadTemplate(file) {
     currentTemplate = templates.find(t => t.file === file);
     try {
-      const res = await fetch('/_wiki/using-this-wiki/templates/' + file);
+      const res = await fetch('/assets/templates/' + file);
       if (!res.ok) throw new Error('Failed');
       const text = await res.text();
       const parsed = parseFrontMatter(text);
