@@ -269,6 +269,7 @@ body {
   max-width: $content-max-width;
   margin-left: auto;
   margin-right: auto;
+  justify-self: center;
   text-align: center;
 
   h1 {
@@ -279,6 +280,17 @@ body {
     letter-spacing: -0.02em;
     color: $text-color;
   }
+
+  h2 {
+    text-align: center;
+    margin-top: $spacing-2xl;
+  }
+
+  h3 {
+    text-align: center;
+    margin-top: $spacing-2xl;
+  }
+}
 
   h2 {
     text-align: center;
@@ -313,6 +325,7 @@ body {
 @media (min-width: #{$breakpoint-desktop}) {
   .wiki-content-wrapper {
     grid-template-columns: $sidebar-width 1fr;
+    justify-content: center;
   }
 
   .toc-sidebar {
