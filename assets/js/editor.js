@@ -286,7 +286,29 @@ description: "{{DESCRIPTION}}"
   function updatePreview() {
     const preview = document.getElementById('preview-content');
     if (!preview || !editor) return;
-    preview.innerHTML = marked.parse(editor.value());
+    const rawHtml = marked.parse(editor.value());
+    const title = frontMatter.title || 'My New Article';
+    const category = frontMatter.category || document.getElementById('category-select')?.value || 'getting-started';
+    const categoryTitle = category.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+    
+    preview.innerHTML = `
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/wiki/">Wiki</a></li>
+          <li><a href="/wiki/${category}/">${categoryTitle}</a></li>
+          <li aria-current="page">${escapeHtml(title)}</li>
+        </ol>
+      </nav>
+      <article class="wiki-article">
+        <h1>${escapeHtml(title)}</h1>
+        <div class="article-meta">
+          <span>Category: <a href="/wiki/${category}/">${categoryTitle}</a></span>
+          <span>Last updated: ${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+        </div>
+        ${rawHtml}
+      </article>
+    `;
   }
 
   function updateFilename() {
