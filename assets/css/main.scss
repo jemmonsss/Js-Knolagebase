@@ -730,3 +730,164 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: calc(#{$nav-height} + #{$spacing-lg});
 }
+
+// ------------------------------
+// Skip to content
+// ------------------------------
+.skip-to-content {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: $primary-color;
+  color: #fff;
+  padding: $spacing-xs $spacing-md;
+  z-index: 200;
+  text-decoration: none;
+  border-radius: 0 0 $border-radius $border-radius;
+
+  &:focus {
+    top: 0;
+  }
+}
+
+// ------------------------------
+// Reading progress bar
+// ------------------------------
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, $primary-color, $secondary-color);
+  z-index: 150;
+  transition: width 100ms ease;
+  width: 0%;
+}
+
+// ------------------------------
+// Back to top
+// ------------------------------
+.back-to-top {
+  position: fixed;
+  bottom: $spacing-lg;
+  right: $spacing-lg;
+  width: 44px;
+  height: 44px;
+  background: $bg-color;
+  border: 1px solid $border-color;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: $shadow-md;
+  opacity: 0;
+  visibility: hidden;
+  transition: all $transition-normal;
+  z-index: 90;
+  color: $text-muted;
+
+  &.is-visible {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &:hover {
+    color: $primary-color;
+    border-color: $primary-color;
+    transform: translateY(-2px);
+  }
+}
+
+// ------------------------------
+// Code block copy button
+// ------------------------------
+.code-block-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: $code-bg;
+  color: $code-text;
+  padding: $spacing-sm $spacing-md;
+  border-radius: $border-radius-lg $border-radius-lg 0 0;
+  font-size: $text-sm;
+  font-family: $font-mono;
+}
+
+.copy-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: $code-text;
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $border-radius;
+  font-size: $text-xs;
+  cursor: pointer;
+  transition: background $transition-fast;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+}
+
+// ------------------------------
+// Edit on GitHub
+// ------------------------------
+.edit-link {
+  display: inline-block;
+  margin-top: $spacing-xl;
+  font-size: $text-sm;
+  color: $text-muted;
+  text-decoration: none;
+  border: 1px solid $border-color;
+  padding: $spacing-xs $spacing-md;
+  border-radius: $border-radius;
+  transition: all $transition-fast;
+
+  &:hover {
+    color: $primary-color;
+    border-color: $primary-color;
+    text-decoration: none;
+  }
+}
+
+// ------------------------------
+// Related articles
+// ------------------------------
+.related-articles {
+  margin-top: $spacing-3xl;
+  padding-top: $spacing-xl;
+  border-top: 1px solid $border-color;
+  text-align: center;
+
+  h3 {
+    text-align: center;
+    margin-bottom: $spacing-lg;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-md;
+    justify-content: center;
+  }
+
+  li a {
+    display: inline-block;
+    padding: $spacing-sm $spacing-md;
+    background: $bg-secondary;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    color: $text-color;
+    text-decoration: none;
+    transition: all $transition-fast;
+
+    &:hover {
+      color: $primary-color;
+      border-color: $primary-color;
+      text-decoration: none;
+    }
+  }
+}

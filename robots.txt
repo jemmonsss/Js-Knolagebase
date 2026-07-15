@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /wiki/using-this-wiki/templates/
+
+Sitemap: https://jemmonsss.github.io/Js-Knolagebase/sitemap.xml

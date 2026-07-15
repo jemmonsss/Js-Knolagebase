@@ -29,8 +29,22 @@ layout: default
           <span>Category: <a href="{{ '/wiki/' | append: page.category | relative_url }}">{{ page.category | replace: '-', ' ' | capitalize }}</a></span>
           <span>Last updated: {{ page.last_modified_at | default: page.date | date: "%B %d, %Y" }}</span>
         </div>
-        {{ content }}
-      </article>
+      {{ content }}
+      {% if site.social.github %}
+        <a href="https://github.com/{{ site.social.github }}/edit/main/{{ page.path | relative_url }}" class="edit-link" target="_blank" rel="noopener">Edit this page on GitHub</a>
+      {% endif %}
+      {% assign related = site.wiki | where: "category", page.category | where_exp: "item", "item.title != page.title" | sort: "order" | slice: 0, 3 %}
+      {% if related.size > 0 %}
+        <div class="related-articles">
+          <h3>Related Articles</h3>
+          <ul>
+            {% for article in related %}
+              <li><a href="{{ article.url | relative_url }}">{{ article.title | escape }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+    </article>
     </div>
   </div>
 </div>

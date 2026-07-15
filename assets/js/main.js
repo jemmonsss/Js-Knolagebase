@@ -125,4 +125,68 @@
       }
     });
   });
+
+  // Reading progress bar
+  const progressBar = document.getElementById('reading-progress');
+  if (progressBar) {
+    function updateProgress() {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progressBar.style.width = Math.min(progress, 100) + '%';
+    }
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    updateProgress();
+  }
+
+  // Back to top
+  const backToTop = document.getElementById('back-to-top');
+  if (backToTop) {
+    function updateBackToTop() {
+      if (window.scrollY > 600) {
+        backToTop.classList.add('is-visible');
+      } else {
+        backToTop.classList.remove('is-visible');
+      }
+    }
+    window.addEventListener('scroll', updateBackToTop, { passive: true });
+    backToTop.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  // Keyboard shortcut / for search
+  const searchToggle = document.getElementById('search-toggle');
+  const searchOverlay = document.getElementById('search-overlay');
+  document.addEventListener('keydown', function (e) {
+    if (e.key === '/' && searchOverlay && !searchOverlay.classList.contains('is-open') && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
+      e.preventDefault();
+      if (searchToggle) searchToggle.click();
+    }
+  });
+
+  // Copy code buttons
+  document.querySelectorAll('pre code').forEach(function (block) {
+    const pre = block.parentElement;
+    const button = document.createElement('button');
+    button.className = 'copy-btn';
+    button.textContent = 'Copy';
+    button.setAttribute('aria-label', 'Copy code to clipboard');
+
+    const header = document.createElement('div');
+    header.className = 'code-block-header';
+    header.appendChild(button);
+    pre.parentElement.insertBefore(header, pre);
+
+    button.addEventListener('click', async function () {
+      try {
+        await navigator.clipboard.writeText(block.textContent);
+        button.textContent = 'Copied!';
+        setTimeout(() => button.textContent = 'Copy', 2000);
+      } catch (err) {
+        button.textContent = 'Failed';
+        setTimeout(() => button.textContent = 'Copy', 2000);
+      }
+    });
+  });
 })();

@@ -16,11 +16,18 @@
   <script>window.SEARCH_INDEX_PATH = "{{ '/search.json' | relative_url }}";</script>
 </head>
 <body>
+  <a href="#main-content" class="skip-to-content">Skip to content</a>
   {% include nav.html %}
   <main class="main-content" id="main-content">
     {{ content }}
   </main>
   {% include footer.html %}
+  <div class="reading-progress" id="reading-progress" aria-hidden="true"></div>
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top" title="Back to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
   <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
   {% if site.search.enabled %}
     <script src="{{ '/assets/js/search.js' | relative_url }}"></script>
