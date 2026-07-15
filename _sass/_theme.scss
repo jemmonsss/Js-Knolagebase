@@ -291,6 +291,67 @@
   .docs-article {
     background: transparent;
   }
+
+  // New elements dark mode
+  .skip-to-content {
+    background: $primary-color;
+    color: #fff;
+  }
+
+  .reading-progress {
+    background: linear-gradient(90deg, #60a5fa, #93c5fd);
+  }
+
+  .back-to-top {
+    background: $dark-bg-secondary;
+    border-color: $dark-border-color;
+    color: $dark-text-muted;
+
+    &:hover {
+      color: #60a5fa;
+      border-color: #60a5fa;
+    }
+  }
+
+  .code-block-header {
+    background: $dark-code-bg;
+    color: $dark-code-text;
+  }
+
+  .copy-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: $dark-code-text;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+  }
+
+  .edit-link {
+    color: $dark-text-muted;
+    border-color: $dark-border-color;
+
+    &:hover {
+      color: #60a5fa;
+      border-color: #60a5fa;
+    }
+  }
+
+  .related-articles {
+    border-top-color: $dark-border-color;
+
+    li a {
+      background: $dark-bg-secondary;
+      border-color: $dark-border-color;
+      color: $dark-text-color;
+
+      &:hover {
+        color: #60a5fa;
+        border-color: #60a5fa;
+      }
+    }
+  }
 }
 
 // Light mode explicit (optional, for toggling back)
