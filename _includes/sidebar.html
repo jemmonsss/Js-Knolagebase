@@ -5,8 +5,9 @@
       <nav class="sidebar-nav">
         <ul class="sidebar-list">
           {% for item in category_sidebar %}
+            {% assign item_url = item.url | relative_url %}
             <li>
-              <a href="{{ item.url | relative_url }}" class="sidebar-link{% if page.url == item.url %} active{% endif %}">
+              <a href="{{ item_url }}" class="sidebar-link{% if page.url == item_url %} active{% endif %}">
                 {{ item.title | escape }}
               </a>
             </li>
