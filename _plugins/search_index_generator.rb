@@ -1,4 +1,7 @@
 module Jekyll
+  require "json"
+  require "fileutils"
+
   class SearchIndexGenerator < Generator
     safe true
     priority :low
