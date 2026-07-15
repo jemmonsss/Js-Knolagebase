@@ -100,14 +100,14 @@ console.log("Hello");
 
 ## Approach 2: Use the built-in editor
 
-The site includes a split-pane Markdown editor at [`/editor/`](/editor/ | relative_url). It lets you:
+The site includes a split-pane Markdown editor at [`/editor/`]({{ '/editor/' | relative_url }}). It lets you:
 
 1. Pick a template (`page-template.md`, `guide-template.md`, `reference-template.md`, or `tutorial-template.md`).
 2. Edit front matter and body in a live preview environment.
 3. Download the finished `.md` file.
 4. Upload it to `_wiki/<category>/` to create a new page.
 
-For detailed instructions, see [Editor Workflow](/wiki/advanced/editor-workflow/ | relative_url).
+For detailed instructions, see [Editor Workflow]({{ '/wiki/advanced/editor-workflow/' | relative_url }}).
 
 ## Template shortcut
 

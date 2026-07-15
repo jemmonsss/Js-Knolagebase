@@ -84,6 +84,6 @@ Open `http://localhost:4000/<baseurl>/` in your browser. Changes to Markdown fil
 
 ## Getting help
 
-- Read the full manual at [Using This Wiki Fully](/wiki/using-this-wiki/fully/ | relative_url).
+- Read the full manual at [Using This Wiki Fully]({{ '/wiki/using-this-wiki/fully/' | relative_url }}).
 - Check existing wiki articles for examples.
 - Open an issue in the repository if you find a bug.

@@ -12,8 +12,8 @@ Welcome! This section will take you from zero to a fully functional knowledge ba
 
 ## What you'll learn
 
-1. [Quick Start](/wiki/getting-started/quick-start/ | relative_url) — get a copy of this site live on GitHub Pages in under five minutes.
-2. [Installation](/wiki/getting-started/installation/ | relative_url) — set up a local copy for editing, previewing, and customization.
+1. [Quick Start]({{ '/wiki/getting-started/quick-start/' | relative_url }}) — get a copy of this site live on GitHub Pages in under five minutes.
+2. [Installation]({{ '/wiki/getting-started/installation/' | relative_url }}) — set up a local copy for editing, previewing, and customization.
 
 ## Prerequisites
 
@@ -22,8 +22,8 @@ Before you begin, make sure you have:
 - A **GitHub account** (free)
 - **Git** installed locally, or GitHub Desktop
 - A text editor (VS Code, Notepad++, or any plain-text editor)
-- Basic comfort with **Markdown** — see [Adding Content](/wiki/using-this-wiki/adding-content/ | relative_url) if you need a refresher
+- Basic comfort with **Markdown** — see [Adding Content]({{ '/wiki/using-this-wiki/adding-content/' | relative_url }}) if you need a refresher
 
 ## Still stuck?
 
-If you run into problems, check [Managing Repo](/wiki/using-this-wiki/managing-repo/ | relative_url) for troubleshooting tips, or open an issue in the repository.
+If you run into problems, check [Managing Repo]({{ '/wiki/using-this-wiki/managing-repo/' | relative_url }}) for troubleshooting tips, or open an issue in the repository.

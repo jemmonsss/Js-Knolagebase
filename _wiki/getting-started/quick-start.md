@@ -86,6 +86,6 @@ Commit and push. Within a minute or two, the page is live.
 
 ## What's next?
 
-- Learn the full content workflow in [Adding Content](/wiki/using-this-wiki/adding-content/ | relative_url).
-- Customize the appearance in [Editing Settings](/wiki/using-this-wiki/editing-settings/ | relative_url).
-- Read the complete reference in [Using This Wiki Fully](/wiki/using-this-wiki/fully/ | relative_url).
+- Learn the full content workflow in [Adding Content]({{ '/wiki/using-this-wiki/adding-content/' | relative_url }}).
+- Customize the appearance in [Editing Settings]({{ '/wiki/using-this-wiki/editing-settings/' | relative_url }}).
+- Read the complete reference in [Using This Wiki Fully]({{ '/wiki/using-this-wiki/fully/' | relative_url }}).

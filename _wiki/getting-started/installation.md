@@ -79,5 +79,5 @@ GitHub Actions sets this automatically during deployment.
 
 ## Next steps
 
-- Add your first page following the guide in [Adding Content](/wiki/using-this-wiki/adding-content/ | relative_url).
-- Change the site title, colors, and navigation in [Editing Settings](/wiki/using-this-wiki/editing-settings/ | relative_url).
+- Add your first page following the guide in [Adding Content]({{ '/wiki/using-this-wiki/adding-content/' | relative_url }}).
+- Change the site title, colors, and navigation in [Editing Settings]({{ '/wiki/using-this-wiki/editing-settings/' | relative_url }}).

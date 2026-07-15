@@ -8,7 +8,7 @@ toc: true
 
 # Editor Workflow
 
-The built-in split-pane Markdown editor at [`/editor/`](/editor/ | relative_url) provides a fast way to create new wiki pages from templates without manually creating files.
+The built-in split-pane Markdown editor at [`/editor/`]({{ '/editor/' | relative_url }}) provides a fast way to create new wiki pages from templates without manually creating files.
 
 ## What you need
 
@@ -17,7 +17,7 @@ The built-in split-pane Markdown editor at [`/editor/`](/editor/ | relative_url)
 
 ## Step 1: Open the editor
 
-Visit [`/editor/`](/editor/ | relative_url) on your site. You will see a toolbar, a Markdown editor on the left, and a live preview on the right.
+Visit [`/editor/`]({{ '/editor/' | relative_url }}) on your site. You will see a toolbar, a Markdown editor on the left, and a live preview on the right.
 
 ## Step 2: Choose a template
 
@@ -73,6 +73,6 @@ Click **Download .md**. The browser saves a file named after your title, for exa
 
 ## Next steps
 
-- Learn about front matter in [Adding Content](/wiki/using-this-wiki/adding-content/ | relative_url).
+- Learn about front matter in [Adding Content]({{ '/wiki/using-this-wiki/adding-content/' | relative_url }}).
 - Customize templates in `_wiki/using-this-wiki/templates/`.
 - Add your own templates by creating new `.md` files in the templates folder and registering them in `_data/templates.yml`.
