@@ -1,15 +1,29 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: 'en' }}">
-  <head>
-    {% include head.html %}
-  </head>
-  <body>
-    {% include nav.html %}
-    <main class="main-content" id="main-content">
-      {{ content }}
-    </main>
-    {% include footer.html %}
-    <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>
+    {% if page.title %}{{ page.title | escape }} | {% endif %}{{ site.title | escape }}
+  </title>
+  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description | escape }}{% endif %}">
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  {% feed_meta %}
+  {% seo %}
+  <script>window.SEARCH_INDEX_PATH = "{{ '/search.json' | relative_url }}";</script>
+</head>
+<body>
+  {% include nav.html %}
+  <main class="main-content" id="main-content">
+    {{ content }}
+  </main>
+  {% include footer.html %}
+  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+  {% if site.search.enabled %}
     <script src="{{ '/assets/js/search.js' | relative_url }}"></script>
-  </body>
+  {% endif %}
+</body>
 </html>

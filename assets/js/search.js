@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  const SEARCH_INDEX_PATH = '/search.json';
+  const SEARCH_INDEX_PATH = window.SEARCH_INDEX_PATH || './search.json';
 
   let indexData = [];
 
