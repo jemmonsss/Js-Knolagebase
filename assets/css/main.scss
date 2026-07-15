@@ -264,6 +264,18 @@ body {
   padding: $spacing-xl 0;
 }
 
+.category-content-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-xl;
+}
+
+@media (min-width: #{$breakpoint-desktop}) {
+  .category-content-wrapper {
+    grid-template-columns: $sidebar-width 1fr;
+  }
+}
+
 .category-description {
   font-size: $text-lg;
   color: $text-muted;

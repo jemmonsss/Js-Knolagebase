@@ -17,6 +17,7 @@ layout: default
       </ol>
     </nav>
     <div class="wiki-content-wrapper">
+      {% include sidebar.html %}
       {% if page.toc %}
         <aside class="toc-sidebar" aria-label="Table of Contents">
           {% include toc.html html=content %}

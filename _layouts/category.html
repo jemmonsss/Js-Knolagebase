@@ -8,16 +8,19 @@ layout: default
     {% if page.description %}
       <p class="category-description">{{ page.description | escape }}</p>
     {% endif %}
-    <div class="category-articles">
-      {% assign pages_in_category = site.wiki | where: "category", page.category | sort: "order" %}
-      {% for article in pages_in_category %}
-        {% if article.title != page.title %}
-          <a href="{{ article.url | relative_url }}" class="article-card">
-            <h3>{{ article.title | escape }}</h3>
-            <p>{{ article.excerpt | strip_html | truncate: 140 }}</p>
-          </a>
-        {% endif %}
-      {% endfor %}
+    <div class="category-content-wrapper">
+      {% include sidebar.html %}
+      <div class="category-articles">
+        {% assign pages_in_category = site.wiki | where: "category", page.category | sort: "order" %}
+        {% for article in pages_in_category %}
+          {% if article.title != page.title %}
+            <a href="{{ article.url | relative_url }}" class="article-card">
+              <h3>{{ article.title | escape }}</h3>
+              <p>{{ article.excerpt | strip_html | truncate: 140 }}</p>
+            </a>
+          {% endif %}
+        {% endfor %}
+      </div>
     </div>
   </div>
 </div>
