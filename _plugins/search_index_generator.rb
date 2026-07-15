@@ -16,7 +16,8 @@ module Jekyll
         title = page.data['title'] || page.name
         url = File.join(site.baseurl, page.url)
         category = page.data['category'] || ''
-        excerpt = (page.data['excerpt'] || page.data['description'] || '').gsub(/\s+/, ' ').strip
+        raw_excerpt = page.data['excerpt'] || page.data['description'] || ''
+        excerpt = raw_excerpt.to_s.gsub(/\s+/, ' ').strip
 
         index << {
           'title' => title,
