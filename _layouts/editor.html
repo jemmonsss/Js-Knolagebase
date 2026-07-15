@@ -1,0 +1,12 @@
+---
+layout: default
+---
+
+<div class="editor-layout-page">
+  <div class="container">
+    <h1>{{ page.title | escape }}</h1>
+    {{ content }}
+  </div>
+</div>
+
+<script src="{{ '/assets/js/editor.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
