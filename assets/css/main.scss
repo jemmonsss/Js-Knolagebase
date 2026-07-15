@@ -262,6 +262,9 @@ body {
   grid-template-columns: 1fr;
   gap: $spacing-xl;
   justify-items: center;
+  max-width: calc(#{$sidebar-width} + #{$content-max-width});
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .wiki-article {
@@ -403,6 +406,9 @@ body {
   grid-template-columns: 1fr;
   gap: $spacing-xl;
   justify-items: center;
+  max-width: calc(#{$sidebar-width} + #{$content-max-width});
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @media (min-width: #{$breakpoint-desktop}) {
