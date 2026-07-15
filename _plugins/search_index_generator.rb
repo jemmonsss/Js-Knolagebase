@@ -7,7 +7,8 @@ module Jekyll
     priority :low
 
     def generate(site)
-      return unless site.config.dig("search", "enabled")
+      search_cfg = site.config["search"] || site.config[:search]
+      return unless search_cfg && search_cfg["enabled"]
 
       pages = site.pages + site.documents
       index = []
