@@ -158,8 +158,7 @@
   }
 
   // Keyboard shortcut / for search
-  const searchToggle = document.getElementById('search-toggle');
-  const searchOverlay = document.getElementById('search-overlay');
+  // Reuse searchToggle and searchOverlay declared above
   document.addEventListener('keydown', function (e) {
     if (e.key === '/' && searchOverlay && !searchOverlay.classList.contains('is-open') && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
       e.preventDefault();
