@@ -7,32 +7,37 @@ module Jekyll
     priority :low
 
     def generate(site)
-      return unless site.config['search'] && site.config['search']['enabled']
+      return unless site.config.dig("search", "enabled")
 
       pages = site.pages + site.documents
       index = []
 
       pages.each do |page|
-        next if page.data['search_exclude'] == true
-        next if page.data['layout'] == 'home'
+        next if page.data["search_exclude"] == true
+        next if page.data["layout"] == "home"
 
-        title = page.data['title'] || page.name
-        url = File.join(site.baseurl, page.url)
-        category = page.data['category'] || ''
-        raw_excerpt = page.data['excerpt'] || page.data['description'] || ''
-        excerpt = raw_excerpt.to_s.gsub(/\s+/, ' ').strip
+        title = page.data["title"] || page.name
+        url = File.join(site.baseurl.to_s, page.url.to_s)
+        category = page.data["category"] || ""
+        raw_excerpt = page.data["excerpt"] || page.data["description"] || ""
+        excerpt = raw_excerpt.to_s.gsub(/\s+/, " ").strip
 
         index << {
-          'title' => title,
-          'url' => url,
-          'category' => category,
-          'excerpt' => excerpt[0..200]
+          "title" => title,
+          "url" => url,
+          "category" => category,
+          "excerpt" => excerpt[0..200],
         }
       end
 
-      index_path = File.join(site.dest, 'search.json')
-      FileUtils.mkdir_p(File.dirname(index_path))
-      File.write(index_path, JSON.generate(index))
+      index_path = File.join(site.dest.to_s, "search.json")
+      begin
+        FileUtils.mkdir_p(File.dirname(index_path))
+        File.write(index_path, JSON.generate(index))
+        Jekyll.logger.info "SearchIndexGenerator:", "Wrote #{index_path} with #{index.length} entries"
+      rescue => e
+        Jekyll.logger.error "SearchIndexGenerator:", "Failed to write search.json - #{e.message}"
+      end
     end
   end
 end
