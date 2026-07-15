@@ -27,7 +27,7 @@ layout: default
         <h1>{{ page.title | escape }}</h1>
         <div class="article-meta">
           <span>Category: <a href="{{ '/wiki/' | append: page.category | relative_url }}">{{ page.category | replace: '-', ' ' | capitalize }}</a></span>
-          <span>Last updated: {{ page.date | date: "%B %d, %Y" }}</span>
+          <span>Last updated: {{ page.last_modified_at | default: page.date | date: "%B %d, %Y" }}</span>
         </div>
         {{ content }}
       </article>
