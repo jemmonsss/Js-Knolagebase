@@ -43,6 +43,12 @@ body {
   padding: $spacing-3xl 0;
   text-align: center;
 
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   .hero-title {
     font-size: $text-3xl;
     margin-bottom: $spacing-md;
@@ -104,6 +110,7 @@ body {
   text-decoration: none;
   color: inherit;
   transition: box-shadow $transition-fast, transform $transition-fast;
+  text-align: center;
 
   &:hover {
     box-shadow: $shadow-md;
@@ -184,6 +191,10 @@ body {
 
 .wiki-article {
   min-width: 0;
+
+  h1 {
+    text-align: center;
+  }
 }
 
 .article-meta {
@@ -262,6 +273,7 @@ body {
 // ------------------------------
 .category-layout {
   padding: $spacing-xl 0;
+  text-align: center;
 }
 
 .category-content-wrapper {
@@ -280,6 +292,9 @@ body {
   font-size: $text-lg;
   color: $text-muted;
   margin-bottom: $spacing-2xl;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: $content-max-width;
 }
 
 .category-articles {
@@ -297,6 +312,7 @@ body {
   text-decoration: none;
   color: inherit;
   transition: box-shadow $transition-fast, transform $transition-fast;
+  text-align: center;
 
   &:hover {
     box-shadow: $shadow-md;
@@ -322,10 +338,13 @@ body {
 // ------------------------------
 .docs-layout {
   padding: $spacing-xl 0;
+  text-align: center;
 }
 
 .docs-article {
   max-width: $content-max-width;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 // ------------------------------
