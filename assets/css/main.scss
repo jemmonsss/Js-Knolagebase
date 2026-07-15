@@ -142,6 +142,7 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: $spacing-lg;
   padding: $spacing-3xl 0;
+  justify-items: center;
 }
 
 .home-card {
@@ -201,6 +202,8 @@ body {
 // ------------------------------
 .wiki-layout {
   padding: $spacing-xl 0;
+  display: flex;
+  justify-content: center;
 }
 
 .breadcrumbs {
@@ -258,6 +261,17 @@ body {
   display: grid;
   grid-template-columns: 1fr;
   gap: $spacing-xl;
+  justify-items: center;
+}
+
+.wiki-article {
+  min-width: 0;
+  width: 100%;
+  text-align: center;
+
+  h1 {
+    text-align: center;
+  }
 }
 
 .wiki-article {
@@ -374,12 +388,15 @@ body {
 .category-layout {
   padding: $spacing-xl 0;
   text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 .category-content-wrapper {
   display: grid;
   grid-template-columns: 1fr;
   gap: $spacing-xl;
+  justify-items: center;
 }
 
 @media (min-width: #{$breakpoint-desktop}) {
@@ -402,6 +419,8 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: $spacing-lg;
+  justify-items: center;
+  width: 100%;
 }
 
 .article-card {
@@ -417,6 +436,8 @@ body {
   box-shadow: $shadow-sm;
   position: relative;
   overflow: hidden;
+  width: 100%;
+  max-width: 400px;
 
   &::before {
     content: "";
