@@ -4,7 +4,6 @@
 #   bundle exec ruby scripts/check_site.rb frontmatter
 #   bundle exec ruby scripts/check_site.rb links
 
-require "json"
 require "yaml"
 require "fileutils"
 require "pathname"
@@ -13,11 +12,10 @@ ROOT = Pathname.new(File.expand_path("../..", __dir__))
 SITE_DIR = ROOT.join("_site")
 WIKI_DIR = ROOT.join("_wiki")
 DOCS_DIR = ROOT.join("_docs")
-DATA_NAV = ROOT.join("_data", "navigation.yml")
-DATA_CATEGORIES = ROOT.join("_data", "categories.yml")
 
 def build_site
-  unless system("bundle", "exec", "jekyll", "build", "-q", chdir: ROOT.to_s)
+  env = { "JEKYLL_ENV" => "production" }
+  unless system(env, "bundle", "exec", "jekyll", "build", "-q", chdir: ROOT.to_s)
     abort "Jekyll build failed. Run `bundle exec jekyll build` manually to inspect errors."
   end
 end
@@ -68,12 +66,8 @@ def check_links
   puts "==> Validating internal links..."
 
   unless SITE_DIR.exist?
-    if ENV["GITHUB_ACTIONS"]
-      abort "    FAIL: _site/ not found. The main Jekyll build step must run before link validation."
-    else
-      puts "    _site/ not found. Building site first..."
-      build_site
-    end
+    puts "    _site/ not found. Building site first..."
+    build_site
   end
 
   errors = []
@@ -83,7 +77,6 @@ def check_links
     html_path = Pathname.new(html)
     relative = html_path.relative_path_from(SITE_DIR).to_s
 
-    # Skip search.json and feeds
     next if relative == "search.json" || relative.end_with?(".xml") || relative.end_with?(".json")
 
     content = File.read(html)
@@ -92,11 +85,9 @@ def check_links
       next if href.start_with?("http://", "https://", "mailto:", "tel:", "#")
       next if href.start_with?("//")
 
-      # Resolve relative to current page directory
       current_dir = html_path.parent.relative_path_from(SITE_DIR)
       target = (current_dir / href).to_s
 
-      # Normalize: remove trailing slash, handle index.html
       target = target.chomp("/")
       target = "#{target}/index.html" if target == "" || target.end_with?("/")
 

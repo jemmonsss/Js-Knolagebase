@@ -141,14 +141,14 @@ social:
 
 # Exclude from processing
 exclude:
-  - .sass-cache/
-  - .jekyll-cache/
-  - gemfiles/
+  - .sass-cache
+  - .jekyll-cache
+  - gemfiles
   - Gemfile
   - Gemfile.lock
-  - node_modules/
-  - vendor/
-  - vendor/bundle/
-  - vendor/cache/
-  - vendor/gems/
-  - vendor/ruby/
+  - node_modules
+  - vendor
+  - vendor/bundle
+  - vendor/cache
+  - vendor/gems
+  - vendor/ruby
