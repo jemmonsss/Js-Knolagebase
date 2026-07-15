@@ -21,9 +21,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
+        uses: ruby/setup-ruby@v4
         with:
-          ruby-version: "3.2"
+          ruby-version: "3.3"
           bundler-cache: true
           cache-version: 0
       - name: Setup Pages
