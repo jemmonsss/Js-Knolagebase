@@ -78,7 +78,7 @@
   function getPreferredTheme() {
     const stored = localStorage.getItem('theme');
     if (stored) return stored;
-    return '{{ site.theme.default | default: "dark" }}';
+    return '{{ site.appearance.default | default: "dark" }}';
   }
 
   function applyTheme(theme) {
