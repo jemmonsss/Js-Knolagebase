@@ -181,9 +181,7 @@
   .primary-navigation {
     position: fixed;
     inset: 0;
-    background: rgba($bg-color, 0.95);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: $bg-color;
     flex-direction: column;
     justify-content: center;
     align-items: center;
