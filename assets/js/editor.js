@@ -168,25 +168,6 @@ description: "{{DESCRIPTION}}"
   // Templates and categories are embedded above to avoid fetch issues
   // with Jekyll's _data/ and _wiki/ collection paths in production
 
-  function parseYamlList(text) {
-    const items = [];
-    const lines = text.split('\n');
-    let item = {};
-    for (const line of lines) {
-      const t = line.trim();
-      if (t.startsWith('- name:')) {
-        if (item.name) items.push(item);
-        item = { name: t.slice(7).trim().replace(/^"|"$/g, '') };
-      } else if (t.startsWith('file:')) {
-        item.file = t.slice(5).trim().replace(/^"|"$/g, '');
-      } else if (t.startsWith('description:')) {
-        item.description = t.slice(12).trim().replace(/^"|"$/g, '');
-      }
-    }
-    if (item.name) items.push(item);
-    return items;
-  }
-
   function renderTemplateOptions() {
     const sel = document.getElementById('template-select');
     sel.innerHTML = '<option value="">Select a template...</option>' +
@@ -294,16 +275,16 @@ description: "{{DESCRIPTION}}"
     preview.innerHTML = `
       <nav class="breadcrumbs" aria-label="Breadcrumb">
         <ol>
-          <li><a href="/">Home</a></li>
-          <li><a href="/wiki/">Wiki</a></li>
-          <li><a href="/wiki/${category}/">${categoryTitle}</a></li>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Wiki</a></li>
+          <li><a href="#">${escapeHtml(categoryTitle)}</a></li>
           <li aria-current="page">${escapeHtml(title)}</li>
         </ol>
       </nav>
       <article class="wiki-article">
         <h1>${escapeHtml(title)}</h1>
         <div class="article-meta">
-          <span>Category: <a href="/wiki/${category}/">${categoryTitle}</a></span>
+          <span>Category: <a href="#">${escapeHtml(categoryTitle)}</a></span>
           <span>Last updated: ${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
         </div>
         ${rawHtml}
@@ -366,10 +347,12 @@ description: "{{DESCRIPTION}}"
       toolbar: ['bold', 'italic', 'heading', '|', 'quote', 'unordered-list', 'ordered-list', '|', 'link', 'image', 'code', 'table', '|', 'preview', 'side-by-side', 'fullscreen'],
       previewRender: function (plainText) { return marked.parse(plainText); }
     });
-    editor.codemirror.on('change', function () {
-      updatePreview();
-      updateFilename();
-    });
+    if (editor && editor.codemirror) {
+      editor.codemirror.on('change', function () {
+        updatePreview();
+        updateFilename();
+      });
+    }
   }
 
   function setupToolbar() {
