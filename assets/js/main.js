@@ -4,6 +4,7 @@
   // Hamburger menu toggle
   const navToggle = document.getElementById('nav-toggle');
   const primaryNav = document.getElementById('primary-navigation');
+  const siteHeader = document.querySelector('.site-header');
 
   if (navToggle && primaryNav) {
     navToggle.addEventListener('click', function () {
@@ -30,6 +31,20 @@
         navToggle.focus();
       }
     });
+  }
+
+  // Header scroll effect
+  if (siteHeader) {
+    function updateHeaderShadow() {
+      if (window.scrollY > 10) {
+        siteHeader.classList.add('is-scrolled');
+      } else {
+        siteHeader.classList.remove('is-scrolled');
+      }
+    }
+
+    updateHeaderShadow();
+    window.addEventListener('scroll', updateHeaderShadow, { passive: true });
   }
 
   // Search toggle

@@ -44,8 +44,17 @@
   }
 
   .site-header {
-    background: $dark-bg-color;
+    background: rgba($dark-bg-color, 0.85);
     border-bottom-color: $dark-border-color;
+    box-shadow: $shadow-md;
+
+    &.is-scrolled {
+      box-shadow: $shadow-lg;
+    }
+  }
+
+  .header-container {
+    border-bottom: none;
   }
 
   .nav-link {
@@ -59,6 +68,7 @@
 
     &.active {
       color: #60a5fa;
+      background: rgba(96, 165, 250, 0.15);
     }
   }
 
@@ -74,7 +84,28 @@
     &:focus {
       color: #60a5fa;
       border-color: #60a5fa;
+      background: $dark-bg-secondary;
     }
+  }
+
+  .theme-toggle {
+    border-color: $dark-border-color;
+    color: $dark-text-muted;
+
+    &:hover,
+    &:focus {
+      color: #60a5fa;
+      border-color: #60a5fa;
+      background: $dark-bg-secondary;
+    }
+  }
+
+  .primary-navigation {
+    background: rgba($dark-bg-color, 0.95);
+  }
+
+  .site-logo {
+    color: $dark-text-color;
   }
 
   .home-card {

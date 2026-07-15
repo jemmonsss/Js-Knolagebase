@@ -2,9 +2,16 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  background: $bg-color;
+  background: rgba($bg-color, 0.85);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
   border-bottom: 1px solid $border-color;
   height: $nav-height;
+  transition: background $transition-normal, box-shadow $transition-normal;
+}
+
+.site-header.is-scrolled {
+  box-shadow: $shadow-md;
 }
 
 .header-container {
@@ -23,15 +30,30 @@
   font-weight: 700;
   font-size: $text-lg;
   z-index: 101;
+  transition: opacity $transition-fast;
+
+  &:hover {
+    opacity: 0.8;
+    text-decoration: none;
+  }
 
   img {
     width: 32px;
     height: 32px;
     display: block;
+    border-radius: $border-radius-sm;
+    object-fit: contain;
   }
 
   .logo-text {
     white-space: nowrap;
+    letter-spacing: -0.01em;
+    font-weight: 700;
+  }
+
+  .logo-text {
+    white-space: nowrap;
+    letter-spacing: -0.01em;
   }
 }
 
@@ -76,7 +98,7 @@
 .nav-list {
   display: flex;
   align-items: center;
-  gap: $spacing-lg;
+  gap: $spacing-sm;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -89,17 +111,20 @@
   font-weight: 500;
   padding: $spacing-xs $spacing-sm;
   border-radius: $border-radius;
-  transition: color $transition-fast, background $transition-fast;
+  transition: all $transition-fast;
+  position: relative;
 
   &:hover,
   &:focus {
     color: $primary-color;
     background: $bg-secondary;
+    text-decoration: none;
   }
 
   &.active {
     color: $primary-color;
     font-weight: 600;
+    background: rgba($primary-color, 0.08);
   }
 }
 
@@ -115,12 +140,13 @@
   border-radius: $border-radius;
   cursor: pointer;
   color: $text-muted;
-  transition: color $transition-fast, border-color $transition-fast;
+  transition: all $transition-fast;
 
   &:hover,
   &:focus {
     color: $primary-color;
     border-color: $primary-color;
+    background: $bg-secondary;
   }
 }
 
@@ -136,12 +162,13 @@
   border-radius: $border-radius;
   cursor: pointer;
   color: $text-muted;
-  transition: color $transition-fast, border-color $transition-fast;
+  transition: all $transition-fast;
 
   &:hover,
   &:focus {
     color: $primary-color;
     border-color: $primary-color;
+    background: $bg-secondary;
   }
 }
 
@@ -154,13 +181,16 @@
   .primary-navigation {
     position: fixed;
     inset: 0;
-    background: $bg-color;
+    background: rgba($bg-color, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     flex-direction: column;
     justify-content: center;
     align-items: center;
     opacity: 0;
     visibility: hidden;
     transition: opacity $transition-normal, visibility $transition-normal;
+    z-index: 100;
   }
 
   .primary-navigation.is-open {
@@ -171,10 +201,12 @@
   .nav-list {
     flex-direction: column;
     gap: $spacing-xl;
+    align-items: center;
   }
 
   .nav-link {
     font-size: $text-xl;
+    padding: $spacing-sm $spacing-md;
   }
 }
 
