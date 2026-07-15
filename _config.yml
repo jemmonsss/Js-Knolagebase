@@ -3,8 +3,8 @@
 # ------------------------------
 title: "My Knowledge Base"
 description: "A customizable wiki-style documentation site."
-url: "https://username.github.io"
-baseurl: "/repository-name"
+url: "https://jemmonsss.github.io"
+baseurl: "/Js-Knolagebase"
 lang: en
 logo: "/assets/images/logo.svg"
 
@@ -127,7 +127,7 @@ search:
 # Social / Metadata
 # ------------------------------
 social:
-  github: "username/repository-name"
+  github: "jemmonsss/Js-Knolagebase"
   twitter: "username"
   linkedin: "username"
 
