@@ -9,7 +9,6 @@ group :jekyll_plugins do
   gem "jekyll-archives"
   gem "jekyll-include-cache"
   gem "jekyll-last-modified-at"
-  gem "jekyll-toc"
 end
 
 platforms :mingw, :x64_mingw, :jruby do

@@ -17,7 +17,8 @@
         {% for item in site.data.navigation %}
           <li>
             {% assign nav_url = item.url | relative_url %}
-            <a href="{{ nav_url }}" class="nav-link{% if page.url == nav_url or (page.url contains nav_url and nav_url != '/' and nav_url != '/wiki/') %} active{% endif %}">
+            {% assign page_path = page.url | remove_first: site.baseurl %}
+            <a href="{{ nav_url }}" class="nav-link{% if page_path == item.url or (page_path contains item.url and item.url != '/' and item.url != '/wiki/') %} active{% endif %}">
               {{ item.title | escape }}
             </a>
           </li>
