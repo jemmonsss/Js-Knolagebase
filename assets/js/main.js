@@ -1,5 +1,3 @@
----
----
 (function () {
   'use strict';
 
@@ -95,7 +93,7 @@
   function getPreferredTheme() {
     const stored = localStorage.getItem('theme');
     if (stored) return stored;
-    return '{{ site.appearance.default | default: "dark" }}';
+    return document.documentElement.getAttribute('data-default-theme') || 'dark';
   }
 
   function applyTheme(theme) {
