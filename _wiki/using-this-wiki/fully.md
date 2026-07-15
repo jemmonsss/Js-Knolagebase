@@ -30,12 +30,13 @@ This wiki is a static documentation website built with Jekyll and hosted on GitH
 | `_data/navigation.yml` | Top navigation links |
 | `_data/categories.yml` | Category metadata for home page cards |
 | `_data/sidebar.yml` | Sidebar links on wiki pages |
-| `_layouts/` | HTML templates (`default`, `wiki`, `docs`, `category`, `home`) |
+| `_data/templates.yml` | Template registry for the built-in editor |
+| `_layouts/` | HTML templates (`default`, `wiki`, `docs`, `category`, `home`, `editor`) |
 | `_includes/` | Reusable HTML snippets (`nav`, `footer`, `sidebar`, `toc`, `head`) |
 | `_sass/` | SCSS stylesheets split by feature |
 | `_plugins/` | Custom Jekyll plugins (search index generator) |
-| `assets/css/` | Compiled CSS entry point |
-| `assets/js/` | JavaScript (`main.js`, `search.js`) |
+| `assets/css/` | Compiled CSS entry point and editor styles |
+| `assets/js/` | JavaScript (`main.js`, `search.js`, `editor.js`) |
 | `assets/images/` | Logos, diagrams, and other images |
 
 ## Front matter cheat sheet
@@ -98,6 +99,23 @@ Quick preview:
 bundle install
 bundle exec jekyll serve
 ```
+
+## Using the editor
+
+The built-in editor at `/editor/` lets you create pages from templates without touching the file system directly.
+
+1. Go to `/editor/`
+2. Pick a template from the dropdown
+3. Edit in the split-pane Markdown editor
+4. Click **Download .md**
+5. Upload the file to `_wiki/<category>/` in your repository
+
+Available templates:
+
+- **Basic Article** — standard page with table of contents
+- **Guide** — step-by-step instructions with prerequisites and verification
+- **Reference** — API or syntax reference with parameters and examples
+- **Tutorial** — multi-part tutorial with what you'll build and recap
 
 ## Tips and best practices
 

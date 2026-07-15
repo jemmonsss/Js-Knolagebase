@@ -12,10 +12,13 @@ Welcome! This section is your complete guide to running, customizing, and growin
 
 ## Where to start
 
-1. [Adding Content](/wiki/using-this-wiki/adding-content/) — create pages and categories.
-2. [Editing Settings](/wiki/using-this-wiki/editing-settings/) — change the site title, colors, navigation, and more.
-3. [Managing Repo](/wiki/using-this-wiki/managing-repo/) — GitHub workflow, previewing, and troubleshooting.
-4. [Using This Wiki Fully](/wiki/using-this-wiki/fully/) — complete reference, front matter cheat sheet, and pro tips.
+| Page | What you'll learn |
+|------|-------------------|
+| [Adding Content](/wiki/using-this-wiki/adding-content/) | Create pages, categories, and upload images. |
+| [Editing Settings](/wiki/using-this-wiki/editing-settings/) | Change the site title, colors, fonts, navigation, and plugins. |
+| [Managing Repo](/wiki/using-this-wiki/managing-repo/) | GitHub workflow, previewing, and fixing common problems. |
+| [Using This Wiki Fully](/wiki/using-this-wiki/fully/) | Complete reference, front matter cheat sheet, and pro tips. |
+| [Editor Workflow](/wiki/advanced/editor-workflow/) | Use the built-in split-pane editor and templates. |
 
 ## What this site does
 
@@ -37,4 +40,6 @@ Then open `http://localhost:4000/<baseurl>/` in your browser.
 
 ## Need help?
 
-Each manual page includes copy-paste templates and step-by-step instructions. If something breaks, check [Managing Repo](/wiki/using-this-wiki/managing-repo/) for troubleshooting tips.
+- Read the full manual at [Using This Wiki Fully](/wiki/using-this-wiki/fully/).
+- Check existing wiki articles for examples.
+- Open an issue in the repository if you find a bug.

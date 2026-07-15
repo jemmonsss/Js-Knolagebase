@@ -8,7 +8,7 @@ toc: true
 
 # Editing Settings
 
-This page explains how to change the site identity, colors, fonts, navigation, and plugins. All changes are made by editing files in the repository and pushing to GitHub.
+This page explains how to change the site identity, colors, fonts, navigation, plugins, and other behavior. All changes are made by editing files in the repository and pushing to GitHub.
 
 ## Site identity
 
@@ -17,8 +17,8 @@ Edit `_config.yml` at the root of the repository:
 ```yaml
 title: "My Knowledge Base"
 description: "A customizable wiki-style documentation site."
-url: "https://username.github.io"
-baseurl: "/repository-name"
+url: "https://<username>.github.io"
+baseurl: "/<repository-name>"
 logo: "/assets/images/logo.svg"
 ```
 
@@ -105,3 +105,17 @@ Enabled by default:
 - `jekyll-last-modified-at` — shows last-modified dates
 
 If you deploy via GitHub Actions, any gem is supported. If you use native GitHub Pages, stick to the [whitelisted plugins](https://pages.github.com/versions/).
+
+## Categories
+
+Edit `_data/categories.yml` to change the cards shown on the home page:
+
+```yaml
+- slug: getting-started
+  title: Getting Started
+  description: Learn the basics of setting up and using this knowledge base.
+  url: /wiki/getting-started/
+  icon: book-open
+```
+
+The `slug` must match the folder name under `_wiki/`. The `icon` uses [Feather Icons](https://feathericons.com/) names.

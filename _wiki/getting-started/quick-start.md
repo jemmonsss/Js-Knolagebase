@@ -8,23 +8,59 @@ toc: true
 
 # Quick Start
 
-Get up and running with this knowledge base in under five minutes.
+Get your own copy of this knowledge base live on the web in five minutes or less. No local setup required.
 
-## Prerequisites
+## What you'll do
 
-- A GitHub account
-- Git installed locally
-- Basic familiarity with Markdown
+1. Create a repository from this template.
+2. Configure your site name and URL.
+3. Push to GitHub.
+4. Watch GitHub Pages build and publish automatically.
 
-## Clone and Deploy
+## Step 1: Create your repository
 
-1. Click **Use this template** on the repository page.
-2. Clone your new repository locally.
-3. Edit `_config.yml` and replace the site title, URL, and baseurl.
-4. Commit and push to `main` (or enable GitHub Actions for Pages).
-5. GitHub Pages will build and publish your site automatically.
+1. Go to the repository page on GitHub.
+2. Click the green **Use this template** button.
+3. Choose **Create a new repository**.
+4. Give your repository a name. This name becomes your site's URL path.
+   - Example: if you name it `my-docs`, your site will be at `https://<username>.github.io/my-docs/`
+5. Click **Create repository**.
 
-## Add Your First Page
+## Step 2: Configure your site
+
+1. In your new repository, open `_config.yml`.
+2. Update these fields near the top:
+
+```yaml
+title: "My Site Title"
+description: "A short description of your site."
+url: "https://<username>.github.io"
+baseurl: "/<repository-name>"
+```
+
+| Field | What to put here |
+|-------|------------------|
+| `title` | The name shown in the browser tab and header |
+| `description` | A one-sentence description of your site |
+| `url` | Your GitHub Pages domain, e.g. `https://jemmonsss.github.io` |
+| `baseurl` | Your repository name prefixed with `/`, e.g. `/Js-Knolagebase` |
+
+3. Optionally update `_data/navigation.yml` to change the menu links.
+
+## Step 3: Enable GitHub Pages
+
+1. In your repository, go to **Settings** > **Pages**.
+2. Under **Build and deployment**, set **Source** to **GitHub Actions**.
+3. The workflow file `.github/workflows/pages.yml` is already included. It builds and deploys automatically on every push to `main`.
+
+## Step 4: Push your first change
+
+1. Edit any file, or add a new Markdown file under `_wiki/<category>/`.
+2. Commit the change to `main`.
+3. Go to the **Actions** tab to watch the build.
+4. When it finishes, open your live site.
+
+## Add your first page
 
 Create a new Markdown file inside `_wiki/<category>/`:
 
@@ -33,13 +69,23 @@ Create a new Markdown file inside `_wiki/<category>/`:
 title: "My First Article"
 layout: wiki
 category: "getting-started"
-order: 20
+order: 10
 toc: true
 ---
 
 # My First Article
 
-This is my first wiki page.
+This is my first wiki page. Write whatever you want here.
+
+## A Subsection
+
+More content goes here.
 ```
 
-Push the change and wait for the build. That's it.
+Commit and push. Within a minute or two, the page is live.
+
+## What's next?
+
+- Learn the full content workflow in [Adding Content](/wiki/using-this-wiki/adding-content/).
+- Customize the appearance in [Editing Settings](/wiki/using-this-wiki/editing-settings/).
+- Read the complete reference in [Using This Wiki Fully](/wiki/using-this-wiki/fully/).

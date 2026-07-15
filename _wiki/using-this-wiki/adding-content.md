@@ -8,9 +8,11 @@ toc: true
 
 # Adding Content
 
-This page teaches you how to add new pages, organize them into categories, and control how they appear in search and navigation.
+This page teaches you how to add new pages, organize them into categories, and control how they appear in search and navigation. Two approaches are available: manual file creation, or the built-in editor.
 
-## Create a new page
+## Approach 1: Create a page manually
+
+### Create a new page
 
 1. Pick a category folder inside `_wiki/`. For example, `_wiki/getting-started/`.
 2. Create a new file ending in `.md`, such as `_wiki/getting-started/my-new-article.md`.
@@ -49,6 +51,8 @@ Every page needs a header block called "front matter". It tells the site how to 
 | `order` | No | Lower numbers appear first within a category |
 | `toc` | No | Set to `true` to show a table of contents sidebar |
 | `search_exclude` | No | Set to `true` to hide the page from search results |
+| `description` | No | Meta description used for SEO and search excerpts |
+| `permalink` | No | Override the default URL for the page |
 
 ## Create a new category
 
@@ -92,9 +96,23 @@ console.log("Hello");
 ````
 
 - Keep paragraphs short and use headings to break up long text.
+- Use `toc: true` in front matter for pages longer than a few screens. It adds a table of contents sidebar.
+
+## Approach 2: Use the built-in editor
+
+The site includes a split-pane Markdown editor at `/editor/`. It lets you:
+
+1. Pick a template (`page-template.md`, `guide-template.md`, `reference-template.md`, or `tutorial-template.md`).
+2. Edit front matter and body in a live preview environment.
+3. Download the finished `.md` file.
+4. Upload it to `_wiki/<category>/` to create a new page.
+
+For detailed instructions, see [Editor Workflow](/wiki/advanced/editor-workflow/).
 
 ## Template shortcut
 
 A ready-to-copy template is available at:
 
 `_wiki/using-this-wiki/templates/page-template.md`
+
+You can also copy any template from `_wiki/using-this-wiki/templates/` and edit it directly.

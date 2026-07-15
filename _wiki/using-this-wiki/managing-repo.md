@@ -13,7 +13,7 @@ This page covers GitHub workflow, pull requests, previewing the site, and fixing
 ## GitHub Pages setup
 
 1. Open your repository on GitHub.
-2. Go to **Settings > Pages**.
+2. Go to **Settings** > **Pages**.
 3. Under **Build and deployment**, set **Source** to **GitHub Actions**.
 4. The workflow file `.github/workflows/pages.yml` in this repo handles building and deploying automatically.
 
