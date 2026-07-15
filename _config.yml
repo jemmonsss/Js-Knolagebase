@@ -1,0 +1,145 @@
+# ------------------------------
+# Site Settings
+# ------------------------------
+title: "My Knowledge Base"
+description: "A customizable wiki-style documentation site."
+url: "https://username.github.io"
+baseurl: "/repository-name"
+lang: en
+logo: "/assets/images/logo.svg"
+
+# ------------------------------
+# Author
+# ------------------------------
+author:
+  name: "Site Admin"
+  email: "admin@example.com"
+
+# ------------------------------
+# Branding & Responsive Breakpoints
+# ------------------------------
+brand:
+  primary_color: "#2563eb"
+  secondary_color: "#1e40af"
+  accent_color: "#f59e0b"
+  font_heading: "Inter, sans-serif"
+  font_body: "Inter, sans-serif"
+  breakpoints:
+    mobile: "480px"
+    tablet: "768px"
+    desktop: "1024px"
+    wide: "1280px"
+  content_max_width: "720px"
+  nav_height: "64px"
+
+# ------------------------------
+# Navigation
+# ------------------------------
+navigation:
+  - title: "Home"
+    url: "/"
+  - title: "Wiki"
+    url: "/wiki/"
+  - title: "Getting Started"
+    url: "/wiki/getting-started/"
+  - title: "Advanced"
+    url: "/wiki/advanced/"
+  - title: "Using This Wiki"
+    url: "/wiki/using-this-wiki/"
+
+# ------------------------------
+# Collections
+# ------------------------------
+collections:
+  wiki:
+    output: true
+    permalink: /wiki/:path/
+  docs:
+    output: true
+    permalink: /docs/:path/
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+  -
+    scope:
+      path: ""
+      type: "wiki"
+    values:
+      layout: "wiki"
+      author: "Site Admin"
+      search_exclude: false
+  -
+    scope:
+      path: ""
+      type: "docs"
+    values:
+      layout: "docs"
+      author: "Site Admin"
+      search_exclude: false
+
+# ------------------------------
+# Markdown & Highlighting
+# ------------------------------
+markdown: kramdown
+highlighter: rouge
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: "highlight"
+  toc_levels: 2..3
+
+# ------------------------------
+# Plugins
+# ------------------------------
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-archives
+
+jekyll-archives:
+  enabled:
+    - categories
+  layouts:
+    category: category.html
+  permalinks:
+    category: /wiki/category/:name/
+
+# ------------------------------
+# Search Configuration
+# ------------------------------
+search:
+  enabled: true
+  index_fields:
+    - title
+    - category
+    - excerpt
+    - url
+
+# ------------------------------
+# Social / Metadata
+# ------------------------------
+social:
+  github: "username/repository-name"
+  twitter: "username"
+  linkedin: "username"
+
+# Exclude from processing
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/

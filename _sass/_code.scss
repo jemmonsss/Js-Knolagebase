@@ -1,0 +1,55 @@
+.highlight {
+  background: $code-bg;
+  border-radius: $border-radius;
+  padding: $spacing-lg;
+  overflow-x: auto;
+  margin-bottom: $spacing-lg;
+
+  pre {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    overflow: visible;
+  }
+}
+
+.code-block-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: $code-bg;
+  color: $code-text;
+  padding: $spacing-sm $spacing-md;
+  border-radius: $border-radius $border-radius 0 0;
+  font-size: $text-sm;
+  font-family: $font-mono;
+}
+
+.code-block-actions {
+  display: flex;
+  gap: $spacing-sm;
+}
+
+.copy-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: $code-text;
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $border-radius;
+  font-size: $text-xs;
+  cursor: pointer;
+  transition: background $transition-fast;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+}
+
+@media (max-width: #{$breakpoint-mobile}) {
+  .highlight {
+    border-radius: 0;
+    margin-left: calc(-1 * #{$spacing-lg});
+    margin-right: calc(-1 * #{$spacing-lg});
+    width: calc(100% + 2 * #{$spacing-lg});
+  }
+}

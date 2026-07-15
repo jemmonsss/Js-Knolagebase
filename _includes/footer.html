@@ -1,0 +1,18 @@
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <p>&copy; {{ 'now' | date: "%Y" }} {{ site.title | escape }}. All rights reserved.</p>
+      </div>
+      <div class="footer-links">
+        {% if site.social.github %}
+          <a href="https://github.com/{{ site.social.github }}" target="_blank" rel="noopener" aria-label="GitHub">GitHub</a>
+        {% endif %}
+        {% if site.social.twitter %}
+          <a href="https://twitter.com/{{ site.social.twitter }}" target="_blank" rel="noopener" aria-label="Twitter">Twitter</a>
+        {% endif %}
+        <a href="{{ '/wiki/using-this-wiki/' | relative_url }}">Using This Wiki</a>
+      </div>
+    </div>
+  </div>
+</footer>

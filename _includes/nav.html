@@ -1,0 +1,49 @@
+<header class="site-header">
+  <div class="container header-container">
+    <a href="{{ '/' | relative_url }}" class="site-logo">
+      {% if site.logo %}
+        <img src="{{ site.logo | relative_url }}" alt="{{ site.title | escape }}" width="32" height="32">
+      {% else %}
+        <span class="logo-text">{{ site.title | truncate: 20 }}</span>
+      {% endif %}
+    </a>
+    <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="primary-navigation" aria-label="Toggle navigation">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
+    <nav id="primary-navigation" class="primary-navigation" aria-label="Primary">
+      <ul class="nav-list">
+        {% for item in site.data.navigation %}
+          <li>
+            <a href="{{ item.url | relative_url }}" class="nav-link{% if page.url == item.url %} active{% endif %}">
+              {{ item.title | escape }}
+            </a>
+          </li>
+        {% endfor %}
+        {% if site.search.enabled %}
+          <li>
+            <button class="search-toggle" id="search-toggle" aria-expanded="false" aria-label="Toggle search">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </button>
+          </li>
+        {% endif %}
+      </ul>
+    </nav>
+  </div>
+</header>
+<div class="search-overlay" id="search-overlay" aria-hidden="true">
+  <div class="search-panel">
+    <div class="container">
+      <div class="search-header">
+        <label for="search-input" class="search-label">Search</label>
+        <button class="search-close" id="search-close" aria-label="Close search">&times;</button>
+      </div>
+      <input type="search" id="search-input" class="search-input" placeholder="Type to search..." autocomplete="off">
+      <div id="search-results" class="search-results" aria-live="polite"></div>
+    </div>
+  </div>
+</div>

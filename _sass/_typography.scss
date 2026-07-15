@@ -1,0 +1,137 @@
+body {
+  font-family: $font-body;
+  font-size: $text-base;
+  line-height: $line-height-relaxed;
+  color: $text-color;
+  background-color: $bg-color;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-heading;
+  font-weight: 700;
+  line-height: $line-height-tight;
+  color: $text-color;
+  margin-top: $spacing-2xl;
+  margin-bottom: $spacing-md;
+  scroll-margin-top: calc(#{$nav-height} + #{$spacing-lg});
+}
+
+h1 {
+  font-size: $text-3xl;
+  margin-top: 0;
+}
+
+h2 {
+  font-size: $text-2xl;
+  border-bottom: 1px solid $border-color;
+  padding-bottom: $spacing-sm;
+}
+
+h3 {
+  font-size: $text-xl;
+}
+
+h4 {
+  font-size: $text-lg;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: $spacing-lg;
+  max-width: $content-max-width;
+}
+
+a {
+  color: $primary-color;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+strong {
+  font-weight: 600;
+}
+
+code {
+  font-family: $font-mono;
+  font-size: 0.9em;
+  background: $bg-secondary;
+  padding: 0.2em 0.4em;
+  border-radius: $border-radius;
+  color: $secondary-color;
+}
+
+pre {
+  background: $code-bg;
+  color: $code-text;
+  padding: $spacing-lg;
+  border-radius: $border-radius;
+  overflow-x: auto;
+  font-size: $text-sm;
+  line-height: $line-height-normal;
+}
+
+pre code {
+  background: transparent;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
+}
+
+blockquote {
+  margin: $spacing-lg 0;
+  padding: $spacing-md $spacing-lg;
+  border-left: 4px solid $primary-color;
+  background: $bg-secondary;
+  color: $text-muted;
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+ul, ol {
+  margin-top: 0;
+  margin-bottom: $spacing-lg;
+  padding-left: $spacing-xl;
+  max-width: $content-max-width;
+}
+
+li {
+  margin-bottom: $spacing-sm;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid $border-color;
+  margin: $spacing-2xl 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: $border-radius;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: $spacing-lg;
+  font-size: $text-sm;
+}
+
+th, td {
+  padding: $spacing-sm $spacing-md;
+  text-align: left;
+  border-bottom: 1px solid $border-color;
+}
+
+th {
+  font-weight: 600;
+  background: $bg-secondary;
+}

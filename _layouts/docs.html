@@ -1,0 +1,28 @@
+---
+layout: default
+---
+
+<div class="docs-layout">
+  <div class="container">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="{{ '/' | relative_url }}">Home</a></li>
+        <li><a href="{{ '/docs/' | relative_url }}">Docs</a></li>
+        {% if page.category %}
+          <li>
+            <a href="{{ '/docs/' | append: page.category | relative_url }}">{{ page.category | replace: '-', ' ' | capitalize }}</a>
+          </li>
+        {% endif %}
+        <li aria-current="page">{{ page.title | escape }}</li>
+      </ol>
+    </nav>
+    <article class="docs-article">
+      <h1>{{ page.title | escape }}</h1>
+      <div class="article-meta">
+        <span>Category: <a href="{{ '/docs/' | append: page.category | relative_url }}">{{ page.category | replace: '-', ' ' | capitalize }}</a></span>
+        <span>Last updated: {{ page.date | date: "%B %d, %Y" }}</span>
+      </div>
+      {{ content }}
+    </article>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+{% if html contains '<h2' or html contains '<h3' or html contains '<h4' %}
+  <div class="toc">
+    <p class="toc-title">On this page</p>
+    <ul class="toc-list">
+      {% for header in html | split: '<h' %}
+        {% if forloop.first == false %}
+          {% assign level = header | slice: 0 %}
+          {% assign id = header | split: 'id="' | slice: 1 | split: '"' | first %}
+          {% if id %}
+            <li class="toc-item toc-level-{{ level }}">
+              <a href="#{{ id }}">{{ header | replace: '<h' | replace: level | replace: '>' | strip }}</a>
+            </li>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+{% endif %}

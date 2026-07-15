@@ -1,0 +1,19 @@
+getting-started:
+  - title: Quick Start
+    url: /wiki/getting-started/quick-start
+  - title: Installation
+    url: /wiki/getting-started/installation
+advanced:
+  - title: Customization
+    url: /wiki/advanced/customization
+  - title: Plugins
+    url: /wiki/advanced/plugins
+using-this-wiki:
+  - title: Overview
+    url: /wiki/using-this-wiki/
+  - title: Adding Content
+    url: /wiki/using-this-wiki/adding-content
+  - title: Editing Settings
+    url: /wiki/using-this-wiki/editing-settings
+  - title: Managing Repo
+    url: /wiki/using-this-wiki/managing-repo

@@ -1,0 +1,25 @@
+---
+layout: default
+---
+
+<div class="home-hero">
+  <div class="container">
+    <h1 class="hero-title">{{ site.title | escape }}</h1>
+    <p class="hero-subtitle">{{ site.description | escape }}</p>
+    <div class="hero-actions">
+      <a href="{{ '/wiki/' | relative_url }}" class="btn btn-primary">Browse Wiki</a>
+      <a href="{{ '/wiki/using-this-wiki/' | relative_url }}" class="btn btn-secondary">Using This Wiki</a>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="home-sections">
+    {% for category in site.data.categories %}
+      <a href="{{ category.url | relative_url }}" class="home-card">
+        <h2>{{ category.title }}</h2>
+        <p>{{ category.description }}</p>
+      </a>
+    {% endfor %}
+  </div>
+</div>

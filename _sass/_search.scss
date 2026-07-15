@@ -1,0 +1,132 @@
+.search-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: $spacing-3xl;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity $transition-normal, visibility $transition-normal;
+
+  &.is-open {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.search-panel {
+  background: $bg-color;
+  width: 100%;
+  max-width: 640px;
+  margin: 0 $spacing-lg;
+  border-radius: $border-radius;
+  box-shadow: $shadow-lg;
+  transform: translateY(-10px);
+  transition: transform $transition-normal;
+}
+
+.search-overlay.is-open .search-panel {
+  transform: translateY(0);
+}
+
+.search-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $spacing-md $spacing-lg;
+  border-bottom: 1px solid $border-color;
+}
+
+.search-label {
+  font-weight: 600;
+  font-size: $text-lg;
+}
+
+.search-close {
+  background: transparent;
+  border: none;
+  font-size: $text-2xl;
+  line-height: 1;
+  cursor: pointer;
+  color: $text-muted;
+  padding: $spacing-xs;
+
+  &:hover {
+    color: $text-color;
+  }
+}
+
+.search-input {
+  width: 100%;
+  padding: $spacing-md $spacing-lg;
+  border: none;
+  border-bottom: 1px solid $border-color;
+  font-size: $text-lg;
+  outline: none;
+
+  &:focus {
+    border-bottom-color: $primary-color;
+  }
+}
+
+.search-results {
+  max-height: 60vh;
+  overflow-y: auto;
+  padding: $spacing-md $spacing-lg;
+}
+
+.search-result-item {
+  display: block;
+  padding: $spacing-md 0;
+  border-bottom: 1px solid $border-color;
+  text-decoration: none;
+  color: $text-color;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &:hover {
+    background: $bg-secondary;
+  }
+
+  .search-result-title {
+    font-weight: 600;
+    color: $primary-color;
+    margin-bottom: $spacing-xs;
+  }
+
+  .search-result-excerpt {
+    font-size: $text-sm;
+    color: $text-muted;
+  }
+}
+
+.search-no-results {
+  padding: $spacing-lg;
+  text-align: center;
+  color: $text-muted;
+}
+
+@media (max-width: #{$breakpoint-mobile}) {
+  .search-overlay {
+    align-items: flex-end;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .search-panel {
+    margin: 0;
+    border-radius: $border-radius $border-radius 0 0;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .search-results {
+    flex: 1;
+  }
+}

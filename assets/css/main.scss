@@ -1,0 +1,356 @@
+---
+---
+
+@import "variables";
+@import "layout";
+@import "navigation";
+@import "typography";
+@import "search";
+@import "code";
+@import "print";
+
+// ------------------------------
+// Base
+// ------------------------------
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+}
+
+// ------------------------------
+// Main content
+// ------------------------------
+.main-content {
+  min-height: calc(100vh - #{$nav-height} - 200px);
+}
+
+// ------------------------------
+// Home page
+// ------------------------------
+.home-hero {
+  background: linear-gradient(135deg, $primary-color 0%, $secondary-color 100%);
+  color: #fff;
+  padding: $spacing-3xl 0;
+  text-align: center;
+
+  .hero-title {
+    font-size: $text-3xl;
+    margin-bottom: $spacing-md;
+  }
+
+  .hero-subtitle {
+    font-size: $text-lg;
+    opacity: 0.9;
+    margin-bottom: $spacing-xl;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: $spacing-md;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    padding: $spacing-sm $spacing-xl;
+    border-radius: $border-radius;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform $transition-fast, box-shadow $transition-fast;
+
+    &:hover {
+      transform: translateY(-1px);
+      text-decoration: none;
+    }
+  }
+
+  .btn-primary {
+    background: #fff;
+    color: $primary-color;
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+  }
+}
+
+.home-sections {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: $spacing-lg;
+  padding: $spacing-3xl 0;
+}
+
+.home-card {
+  display: block;
+  padding: $spacing-xl;
+  background: $bg-secondary;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  text-decoration: none;
+  color: inherit;
+  transition: box-shadow $transition-fast, transform $transition-fast;
+
+  &:hover {
+    box-shadow: $shadow-md;
+    transform: translateY(-2px);
+    text-decoration: none;
+  }
+
+  h2 {
+    margin-top: 0;
+    font-size: $text-xl;
+    color: $primary-color;
+  }
+
+  p {
+    margin-bottom: 0;
+    color: $text-muted;
+  }
+}
+
+// ------------------------------
+// Wiki page
+// ------------------------------
+.wiki-layout {
+  padding: $spacing-xl 0;
+}
+
+.breadcrumbs {
+  margin-bottom: $spacing-xl;
+
+  ol {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-xs $spacing-sm;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: $text-sm;
+    color: $text-muted;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+    margin: 0;
+
+    &::after {
+      content: "/";
+      color: $border-color;
+    }
+
+    &:last-child {
+      &::after {
+        content: "";
+      }
+    }
+  }
+
+  a {
+    color: $text-muted;
+
+    &:hover {
+      color: $primary-color;
+    }
+  }
+
+  [aria-current="page"] {
+    color: $text-color;
+    font-weight: 500;
+  }
+}
+
+.wiki-content-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-xl;
+}
+
+.wiki-article {
+  min-width: 0;
+}
+
+.article-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-md;
+  font-size: $text-sm;
+  color: $text-muted;
+  margin-bottom: $spacing-xl;
+  padding-bottom: $spacing-md;
+  border-bottom: 1px solid $border-color;
+}
+
+@media (min-width: #{$breakpoint-desktop}) {
+  .wiki-content-wrapper {
+    grid-template-columns: $sidebar-width 1fr;
+  }
+
+  .toc-sidebar {
+    position: sticky;
+    top: calc(#{$nav-height} + #{$spacing-lg});
+    align-self: start;
+    max-height: calc(100vh - #{$nav-height} - 2 * #{$spacing-lg});
+    overflow-y: auto;
+  }
+}
+
+// ------------------------------
+// TOC
+// ------------------------------
+.toc {
+  font-size: $text-sm;
+
+  .toc-title {
+    font-weight: 600;
+    margin-bottom: $spacing-sm;
+    color: $text-color;
+  }
+
+  .toc-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-left: 2px solid $border-color;
+  }
+
+  .toc-item {
+    margin: 0;
+
+    a {
+      display: block;
+      padding: $spacing-xs $spacing-md;
+      color: $text-muted;
+      text-decoration: none;
+      border-left: 2px solid transparent;
+      margin-left: -2px;
+
+      &:hover {
+        color: $primary-color;
+        border-left-color: $primary-color;
+      }
+    }
+  }
+
+  .toc-level-3 {
+    padding-left: $spacing-md;
+  }
+
+  .toc-level-4 {
+    padding-left: $spacing-lg;
+  }
+}
+
+// ------------------------------
+// Category page
+// ------------------------------
+.category-layout {
+  padding: $spacing-xl 0;
+}
+
+.category-description {
+  font-size: $text-lg;
+  color: $text-muted;
+  margin-bottom: $spacing-2xl;
+}
+
+.category-articles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: $spacing-lg;
+}
+
+.article-card {
+  display: block;
+  padding: $spacing-lg;
+  background: $bg-secondary;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  text-decoration: none;
+  color: inherit;
+  transition: box-shadow $transition-fast, transform $transition-fast;
+
+  &:hover {
+    box-shadow: $shadow-md;
+    transform: translateY(-2px);
+    text-decoration: none;
+  }
+
+  h3 {
+    margin-top: 0;
+    font-size: $text-lg;
+    color: $primary-color;
+  }
+
+  p {
+    font-size: $text-sm;
+    color: $text-muted;
+    margin-bottom: 0;
+  }
+}
+
+// ------------------------------
+// Docs layout
+// ------------------------------
+.docs-layout {
+  padding: $spacing-xl 0;
+}
+
+.docs-article {
+  max-width: $content-max-width;
+}
+
+// ------------------------------
+// Footer
+// ------------------------------
+.site-footer {
+  background: $bg-secondary;
+  border-top: 1px solid $border-color;
+  padding: $spacing-xl 0;
+  margin-top: $spacing-3xl;
+
+  .footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: $spacing-md;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: $spacing-lg;
+    font-size: $text-sm;
+
+    a {
+      color: $text-muted;
+      text-decoration: none;
+
+      &:hover {
+        color: $primary-color;
+      }
+    }
+  }
+}
+
+@media (max-width: #{$breakpoint-tablet}) {
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+}
