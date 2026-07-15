@@ -24,3 +24,6 @@ Thumbs.db
 # Environment
 .env
 .env.local
+
+# Local editor artifacts (not needed in repo)
+assets/templates/
