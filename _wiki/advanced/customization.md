@@ -134,11 +134,11 @@ To hide a single page from search, add `search_exclude: true` to that page's fro
 
 ## Page editor
 
-The site includes a split-pane Markdown editor at `/editor/`. It lets you:
+The site includes a split-pane Markdown editor at [`/editor/`](/editor/ | relative_url). It lets you:
 
 1. Pick a template (`page-template.md`, `guide-template.md`, `reference-template.md`, `tutorial-template.md`)
 2. Edit front matter and body in a live preview environment
 3. Download the finished `.md` file
 4. Upload it to `_wiki/<category>/` to create a new page
 
-See [Adding Content](/wiki/using-this-wiki/adding-content/) for how to use the editor.
+See [Adding Content](/wiki/using-this-wiki/adding-content/ | relative_url) for how to use the editor.

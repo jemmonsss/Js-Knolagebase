@@ -66,7 +66,7 @@ toc: true
 
 ## Adding content
 
-See [Adding Content](/wiki/using-this-wiki/adding-content/) for step-by-step instructions.
+See [Adding Content](/wiki/using-this-wiki/adding-content/ | relative_url) for step-by-step instructions.
 
 Short version:
 
@@ -77,7 +77,7 @@ Short version:
 
 ## Editing settings
 
-See [Editing Settings](/wiki/using-this-wiki/editing-settings/) for details.
+See [Editing Settings](/wiki/using-this-wiki/editing-settings/ | relative_url) for details.
 
 Common edits:
 
@@ -91,7 +91,7 @@ Common edits:
 
 ## Managing the repository
 
-See [Managing Repo](/wiki/using-this-wiki/managing-repo/) for workflow and troubleshooting.
+See [Managing Repo](/wiki/using-this-wiki/managing-repo/ | relative_url) for workflow and troubleshooting.
 
 Quick preview:
 
@@ -102,9 +102,9 @@ bundle exec jekyll serve
 
 ## Using the editor
 
-The built-in editor at `/editor/` lets you create pages from templates without touching the file system directly.
+The built-in editor at [`/editor/`](/editor/ | relative_url) lets you create pages from templates without touching the file system directly.
 
-1. Go to `/editor/`
+1. Go to [`/editor/`](/editor/ | relative_url)
 2. Pick a template from the dropdown
 3. Edit in the split-pane Markdown editor
 4. Click **Download .md**

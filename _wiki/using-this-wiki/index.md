@@ -14,11 +14,11 @@ Welcome! This section is your complete guide to running, customizing, and growin
 
 | Page | What you'll learn |
 |------|-------------------|
-| [Adding Content](/wiki/using-this-wiki/adding-content/) | Create pages, categories, and upload images. |
-| [Editing Settings](/wiki/using-this-wiki/editing-settings/) | Change the site title, colors, fonts, navigation, and plugins. |
-| [Managing Repo](/wiki/using-this-wiki/managing-repo/) | GitHub workflow, previewing, and fixing common problems. |
-| [Using This Wiki Fully](/wiki/using-this-wiki/fully/) | Complete reference, front matter cheat sheet, and pro tips. |
-| [Editor Workflow](/wiki/advanced/editor-workflow/) | Use the built-in split-pane editor and templates. |
+| [Adding Content](/wiki/using-this-wiki/adding-content/ | relative_url) | Create pages, categories, and upload images. |
+| [Editing Settings](/wiki/using-this-wiki/editing-settings/ | relative_url) | Change the site title, colors, fonts, navigation, and plugins. |
+| [Managing Repo](/wiki/using-this-wiki/managing-repo/ | relative_url) | GitHub workflow, previewing, and fixing common problems. |
+| [Using This Wiki Fully](/wiki/using-this-wiki/fully/ | relative_url) | Complete reference, front matter cheat sheet, and pro tips. |
+| [Editor Workflow](/wiki/advanced/editor-workflow/ | relative_url) | Use the built-in split-pane editor and templates. |
 
 ## What this site does
 
@@ -40,6 +40,6 @@ Then open `http://localhost:4000/<baseurl>/` in your browser.
 
 ## Need help?
 
-- Read the full manual at [Using This Wiki Fully](/wiki/using-this-wiki/fully/).
+- Read the full manual at [Using This Wiki Fully](/wiki/using-this-wiki/fully/ | relative_url).
 - Check existing wiki articles for examples.
 - Open an issue in the repository if you find a bug.
