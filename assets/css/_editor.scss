@@ -280,6 +280,10 @@
   text-align: center;
 }
 
+[data-theme="dark"] .editor-page-title {
+  color: var(--dark-text-muted, #94a3b8);
+}
+
 /* Theme-aware editor styles */
 [data-theme="dark"] .editor-toolbar {
   background: var(--dark-bg-secondary, #1e293b);
