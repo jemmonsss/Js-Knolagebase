@@ -19,7 +19,12 @@ layout: default
         <div class="wiki-category-articles">
           {% assign pages_in_category = site.wiki | where: "category", category.slug | sort: "order" %}
           {% for article in pages_in_category %}
-            <a href="{{ article.url | relative_url }}" class="wiki-article-card">
+            {% assign article_url = article.url | relative_url %}
+            {% if article_url == '' or article_url == nil %}
+              {% assign article_relative_path = article.path | remove: '_wiki/' | remove: '.md' %}
+              {% assign article_url = '/wiki/' | append: article_relative_path | append: '/' | relative_url %}
+            {% endif %}
+            <a href="{{ article_url }}" class="wiki-article-card">
               <h3>{{ article.title | escape }}</h3>
               <p>{{ article.excerpt | strip_html | truncate: 140 }}</p>
             </a>
