@@ -10,17 +10,22 @@ layout: default
     {% endif %}
     <div class="category-content-wrapper">
       {% include sidebar.html %}
-      <div class="category-articles">
-        {% assign pages_in_category = site.wiki | where: "category", page.category | sort: "order" %}
-        {% for article in pages_in_category %}
-          {% if article.title != page.title %}
-            <a href="{{ article.url | relative_url }}" class="article-card">
-              <h3>{{ article.title | escape }}</h3>
-              <p>{{ article.excerpt | strip_html | truncate: 140 }}</p>
-            </a>
-          {% endif %}
-        {% endfor %}
-      </div>
+        <div class="category-articles">
+          {% assign pages_in_category = site.wiki | where: "category", page.category | sort: "order" %}
+          {% for article in pages_in_category %}
+            {% if article.title != page.title %}
+              {% assign article_url = article.url | relative_url %}
+              {% if article_url == '' or article_url == nil %}
+                {% assign article_relative_path = article.path | remove: '_wiki/' | remove: '.md' %}
+                {% assign article_url = '/wiki/' | append: article_relative_path | append: '/' | relative_url %}
+              {% endif %}
+              <a href="{{ article_url }}" class="article-card">
+                <h3>{{ article.title | escape }}</h3>
+                <p>{{ article.excerpt | strip_html | truncate: 140 }}</p>
+              </a>
+            {% endif %}
+          {% endfor %}
+        </div>
     </div>
   </div>
 </div>

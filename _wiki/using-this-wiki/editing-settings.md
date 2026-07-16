@@ -108,7 +108,7 @@ If you deploy via GitHub Actions, any gem is supported. If you use native GitHub
 
 ## Categories
 
-Edit `_data/categories.yml` to change the cards shown on the home page:
+Edit `_data/categories.yml` to change the category sections shown on the `/wiki/` landing page:
 
 ```yaml
 - slug: getting-started

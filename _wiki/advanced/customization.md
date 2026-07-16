@@ -85,7 +85,7 @@ The site uses these HTML templates:
 | Layout | Purpose |
 |--------|---------|
 | `default.html` | Base shell with header, footer, and asset includes |
-| `home.html` | Landing page hero and category cards |
+| `home.html` | Landing page hero and call-to-action buttons |
 | `wiki.html` | Single article with breadcrumbs, TOC, sidebar, and related articles |
 | `category.html` | Category landing page with article cards |
 | `docs.html` | Long-form documentation layout |

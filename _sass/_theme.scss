@@ -366,6 +366,25 @@
     }
   }
 
+  .article-card {
+    background: $dark-bg-secondary;
+    border-color: $dark-border-color;
+    color: $dark-text-color;
+
+    &:hover {
+      border-color: #60a5fa;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+    }
+
+    h3 {
+      color: $dark-text-color;
+    }
+
+    p {
+      color: $dark-text-muted;
+    }
+  }
+
   // Sidebar dark mode
   .sidebar-nav {
     background: $dark-bg-secondary;
