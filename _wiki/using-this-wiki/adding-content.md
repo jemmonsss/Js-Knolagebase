@@ -8,9 +8,20 @@ toc: true
 
 # Adding Content
 
-This page teaches you how to add new pages, organize them into categories, and control how they appear in search and navigation. Two approaches are available: manual file creation, or the built-in editor.
+This page teaches you how to add new pages, organize them into categories, and control how they appear in search and navigation. Two approaches are available: the built-in editor, or manual file creation.
 
-## Approach 1: Create a page manually
+## Approach 1: Use the built-in editor
+
+The site includes a split-pane Markdown editor at [`/editor/`]({{ '/editor/' | relative_url }}). It lets you:
+
+1. Pick a template (`page-template.md`, `guide-template.md`, `reference-template.md`, or `tutorial-template.md`).
+2. Edit front matter and body in a live preview environment.
+3. Download the finished `.md` file.
+4. Upload it to `_wiki/<category>/` to create a new page.
+
+For detailed instructions, see [Editor Workflow]({{ '/wiki/advanced/editor-workflow/' | relative_url }}).
+
+## Approach 2: Create a page manually
 
 ### Create a new page
 
@@ -97,17 +108,6 @@ console.log("Hello");
 
 - Keep paragraphs short and use headings to break up long text.
 - Use `toc: true` in front matter for pages longer than a few screens. It adds a table of contents sidebar.
-
-## Approach 2: Use the built-in editor
-
-The site includes a split-pane Markdown editor at [`/editor/`]({{ '/editor/' | relative_url }}). It lets you:
-
-1. Pick a template (`page-template.md`, `guide-template.md`, `reference-template.md`, or `tutorial-template.md`).
-2. Edit front matter and body in a live preview environment.
-3. Download the finished `.md` file.
-4. Upload it to `_wiki/<category>/` to create a new page.
-
-For detailed instructions, see [Editor Workflow]({{ '/wiki/advanced/editor-workflow/' | relative_url }}).
 
 ## Template shortcut
 
