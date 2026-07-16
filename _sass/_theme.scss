@@ -11,6 +11,64 @@
     color: $dark-text-color;
   }
 
+  .wiki-article h1,
+  .wiki-article h2,
+  .wiki-article h3,
+  .wiki-article h4,
+  .wiki-article h5,
+  .wiki-article h6 {
+    color: $dark-text-color;
+  }
+
+  .wiki-article p,
+  .wiki-article li,
+  .wiki-article td,
+  .wiki-article th {
+    color: $dark-text-muted;
+  }
+
+  .wiki-article strong {
+    color: $dark-text-color;
+  }
+
+  .wiki-article a {
+    color: #60a5fa;
+
+    &:hover {
+      color: #93c5fd;
+    }
+  }
+
+  .wiki-article code {
+    background: $dark-bg-secondary;
+    color: #e2e8f0;
+  }
+
+  .wiki-article pre {
+    background: $dark-code-bg;
+    color: $dark-code-text;
+  }
+
+  .wiki-article blockquote {
+    background: $dark-bg-secondary;
+    border-left-color: #60a5fa;
+    color: $dark-text-muted;
+  }
+
+  .wiki-article table th,
+  .wiki-article table td {
+    border-bottom-color: $dark-border-color;
+  }
+
+  .wiki-article table th {
+    background: $dark-bg-secondary;
+    color: $dark-text-color;
+  }
+
+  .wiki-article table td {
+    color: $dark-text-muted;
+  }
+
   p, li, td, th {
     color: $dark-text-muted;
   }
