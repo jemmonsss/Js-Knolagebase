@@ -29,6 +29,7 @@ Use the editor below to create a new wiki page from a template. When you are don
       <textarea id="markdown-editor"></textarea>
     </div>
     <div class="preview-pane">
+      <div class="preview-pane-header">Preview</div>
       <div id="preview-content"></div>
     </div>
   </div>

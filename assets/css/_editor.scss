@@ -71,6 +71,17 @@
   max-height: 600px;
 }
 
+.preview-pane-header {
+  background: $accent-color;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-align: center;
+}
+
 #preview-content {
   max-width: 100%;
   padding: 2rem;
@@ -294,7 +305,50 @@
   border-color: var(--dark-border-color, #334155);
 }
 
+[data-theme="dark"] .preview-pane-header {
+  background: $accent-color;
+  color: $dark-bg-color;
+}
+
 [data-theme="dark"] #preview-content {
+  color: var(--dark-text-color, #f1f5f9);
+}
+
+[data-theme="dark"] #preview-content .wiki-article h1 {
+  color: var(--dark-text-color, #f1f5f9);
+}
+
+[data-theme="dark"] #preview-content .wiki-article h2,
+[data-theme="dark"] #preview-content .wiki-article h3 {
+  color: var(--dark-text-color, #f1f5f9);
+}
+
+[data-theme="dark"] #preview-content .article-meta {
+  color: var(--dark-text-muted, #94a3b8);
+  border-bottom-color: var(--dark-border-color, #334155);
+}
+
+[data-theme="dark"] #preview-content .article-meta a {
+  color: var(--dark-text-muted, #94a3b8);
+}
+
+[data-theme="dark"] #preview-content .article-meta a:hover {
+  color: #60a5fa;
+}
+
+[data-theme="dark"] #preview-content .breadcrumbs {
+  color: var(--dark-text-muted, #94a3b8);
+}
+
+[data-theme="dark"] #preview-content .breadcrumbs a {
+  color: var(--dark-text-muted, #94a3b8);
+}
+
+[data-theme="dark"] #preview-content .breadcrumbs a:hover {
+  color: #60a5fa;
+}
+
+[data-theme="dark"] #preview-content .breadcrumbs [aria-current="page"] {
   color: var(--dark-text-color, #f1f5f9);
 }
 
