@@ -31,7 +31,7 @@ layout: default
         </div>
       {{ content }}
       {% if site.social.github %}
-        <a href="https://github.com/{{ site.social.github }}/edit/main/{{ page.path | relative_url }}" class="edit-link" target="_blank" rel="noopener">Edit this page on GitHub</a>
+        <a href="https://github.com/{{ site.social.github }}/edit/main/{{ page.path }}" class="edit-link" target="_blank" rel="noopener">Edit this page on GitHub</a>
       {% endif %}
       {% assign related = site.wiki | where: "category", page.category | where_exp: "item", "item.title != page.title" | sort: "order" | slice: 0, 3 %}
       {% if related.size > 0 %}
