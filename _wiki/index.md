@@ -1,6 +1,6 @@
 ---
 title: "Wiki"
-layout: wiki
+layout: wiki-landing
 permalink: /wiki/
 ---
 

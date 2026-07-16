@@ -115,13 +115,13 @@ body {
   }
 
   .btn-primary {
-    background: #fff;
-    color: $primary-color;
+    background: $primary-color;
+    color: #ffffff;
     box-shadow: $shadow-md;
 
     &:hover {
       box-shadow: $shadow-lg;
-      background: #f9fafb;
+      background: $primary-dark;
     }
   }
 

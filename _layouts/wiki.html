@@ -2,32 +2,49 @@
 layout: default
 ---
 
-<div class="wiki-landing">
+<div class="wiki-layout">
   <div class="container">
-    <div class="wiki-landing-hero">
-      <h1>Wiki</h1>
-      <p class="wiki-landing-subtitle">Browse all categories and articles below.</p>
-    </div>
-    {% for category in site.data.categories %}
-      <section class="wiki-category-section">
-        <h2 class="wiki-category-title">
-          <a href="{{ category.url | relative_url }}">{{ category.title | escape }}</a>
-        </h2>
-        {% if category.description %}
-          <p class="wiki-category-description">{{ category.description | escape }}</p>
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="{{ '/' | relative_url }}">Home</a></li>
+        <li><a href="{{ '/wiki/' | relative_url }}">Wiki</a></li>
+        {% if page.category %}
+          <li>
+            <a href="{{ '/wiki/' | append: page.category | relative_url }}">{{ page.category | replace: '-', ' ' | capitalize }}</a>
+          </li>
         {% endif %}
-        <div class="wiki-category-articles">
-          {% assign pages_in_category = site.wiki | where: "category", category.slug | sort: "order" %}
-          {% for article in pages_in_category %}
-            {% assign article_relative_path = article.path | remove: '_wiki/' | remove: '.md' %}
-            {% assign article_url = '/wiki/' | append: article_relative_path | append: '/' | relative_url %}
-            <a href="{{ article_url }}" class="wiki-article-card">
-              <h3>{{ article.title | escape }}</h3>
-              <p>{{ article.excerpt | strip_html | truncate: 140 }}</p>
-            </a>
-          {% endfor %}
+        <li aria-current="page">{{ page.title | escape }}</li>
+      </ol>
+    </nav>
+    <div class="wiki-content-wrapper">
+      {% include sidebar.html %}
+      {% if page.toc %}
+        <aside class="toc-sidebar" aria-label="Table of Contents">
+          {% include toc.html html=content %}
+        </aside>
+      {% endif %}
+      <article class="wiki-article">
+        <h1>{{ page.title | escape }}</h1>
+        <div class="article-meta">
+          <span>Category: <a href="{{ '/wiki/' | append: page.category | relative_url }}">{{ page.category | replace: '-', ' ' | capitalize }}</a></span>
+          <span>Last updated: {{ page.last_modified_at | default: page.date | date: "%B %d, %Y" }}</span>
         </div>
-      </section>
-    {% endfor %}
+        {{ content }}
+        {% if site.social.github %}
+          <a href="https://github.com/{{ site.social.github }}/edit/main/{{ page.path }}" class="edit-link" target="_blank" rel="noopener">Edit this page on GitHub</a>
+        {% endif %}
+        {% assign related = site.wiki | where: "category", page.category | where_exp: "item", "item.title != page.title" | sort: "order" | slice: 0, 3 %}
+        {% if related.size > 0 %}
+          <div class="related-articles">
+            <h3>Related Articles</h3>
+            <ul>
+              {% for article in related %}
+                <li><a href="{{ article.url | relative_url }}">{{ article.title | escape }}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+      </article>
+    </div>
   </div>
 </div>
