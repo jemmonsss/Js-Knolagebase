@@ -14,11 +14,8 @@ layout: default
           {% assign pages_in_category = site.wiki | where: "category", page.category | sort: "order" %}
           {% for article in pages_in_category %}
             {% if article.title != page.title %}
-              {% assign article_url = article.url | relative_url %}
-              {% if article_url == '' or article_url == nil %}
-                {% assign article_relative_path = article.path | remove: '_wiki/' | remove: '.md' %}
-                {% assign article_url = '/wiki/' | append: article_relative_path | append: '/' | relative_url %}
-              {% endif %}
+              {% assign article_relative_path = article.path | remove: '_wiki/' | remove: '.md' %}
+              {% assign article_url = '/wiki/' | append: article_relative_path | append: '/' | relative_url %}
               <a href="{{ article_url }}" class="article-card">
                 <h3>{{ article.title | escape }}</h3>
                 <p>{{ article.excerpt | strip_html | truncate: 140 }}</p>

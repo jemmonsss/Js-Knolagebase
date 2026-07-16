@@ -6,9 +6,11 @@ Welcome to your knowledge base. This site is a fast, searchable, and responsive 
 
 ## Quick links
 
-- [Browse Wiki](/wiki/) — explore all categories and articles
-- [Using This Wiki](/wiki/using-this-wiki/) — learn how to add content, change settings, and manage the site
-- [Getting Started](/wiki/getting-started/) — set up a local copy and publish your first page
+<div class="home-quick-links">
+  <a href="{{ '/wiki/' | relative_url }}" class="btn btn-primary">Browse Wiki</a>
+  <a href="{{ '/wiki/using-this-wiki/' | relative_url }}" class="btn btn-secondary">Using This Wiki</a>
+  <a href="{{ '/wiki/getting-started/' | relative_url }}" class="btn btn-secondary">Getting Started</a>
+</div>
 
 ## What you can do here
 
