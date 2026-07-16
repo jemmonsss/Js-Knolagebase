@@ -20,7 +20,7 @@ layout: default
           {% assign pages_in_category = site.wiki | where: "category", category.slug | sort: "order" %}
           {% for article in pages_in_category %}
             {% assign article_relative_path = article.path | remove: '_wiki/' | remove: '.md' %}
-            {% if article_relative_path ends with '/index' %}
+            {% if article_relative_path contains '/index' %}
               {% assign article_relative_path = article_relative_path | remove: '/index' %}
             {% endif %}
             {% assign article_url = '/wiki/' | append: article_relative_path | append: '/' | relative_url %}
