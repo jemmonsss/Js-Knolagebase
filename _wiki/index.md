@@ -1,7 +1,7 @@
 ---
 title: "Wiki"
-layout: home
+layout: wiki
 permalink: /wiki/
 ---
 
-Welcome to the knowledge base. Browse categories below or use the navigation to get started.
+Welcome to the knowledge base. Browse categories and articles below.

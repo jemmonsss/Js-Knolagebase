@@ -201,6 +201,110 @@ body {
   }
 }
 
+// Wiki landing page
+// ------------------------------
+.wiki-landing {
+  padding: $spacing-3xl 0;
+}
+
+.wiki-landing-hero {
+  text-align: center;
+  margin-bottom: $spacing-3xl;
+
+  h1 {
+    margin-top: 0;
+    margin-bottom: $spacing-md;
+  }
+}
+
+.wiki-landing-subtitle {
+  color: $text-muted;
+  font-size: $text-lg;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: $line-height-relaxed;
+}
+
+.wiki-category-section {
+  margin-bottom: $spacing-3xl;
+}
+
+.wiki-category-title {
+  text-align: center;
+  margin-bottom: $spacing-md;
+
+  a {
+    color: $primary-color;
+    text-decoration: none;
+    transition: color $transition-fast;
+
+    &:hover {
+      color: $primary-dark;
+      text-decoration: none;
+    }
+  }
+}
+
+.wiki-category-description {
+  text-align: center;
+  color: $text-muted;
+  margin-bottom: $spacing-xl;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wiki-category-articles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: $spacing-lg;
+  justify-items: center;
+}
+
+.wiki-article-card {
+  display: block;
+  padding: $spacing-lg;
+  background: $bg-color;
+  border: 1px solid $border-color;
+  border-radius: $border-radius-lg;
+  text-decoration: none;
+  color: inherit;
+  transition: all $transition-normal;
+  text-align: center;
+  box-shadow: $shadow-sm;
+  width: 100%;
+  max-width: 400px;
+
+  &:hover {
+    box-shadow: $shadow-lg;
+    transform: translateY(-2px);
+    text-decoration: none;
+    border-color: $primary-color;
+  }
+
+  h3 {
+    margin-top: 0;
+    margin-bottom: $spacing-sm;
+    font-size: $text-lg;
+    font-weight: 700;
+    color: $text-color;
+  }
+
+  p {
+    font-size: $text-sm;
+    color: $text-muted;
+    margin-bottom: 0;
+    line-height: $line-height-relaxed;
+  }
+}
+
+@media (max-width: 768px) {
+  .wiki-category-articles {
+    grid-template-columns: 1fr;
+  }
+}
+
 // ------------------------------
 // Wiki page
 // ------------------------------
